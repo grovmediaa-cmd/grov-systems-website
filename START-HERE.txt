@@ -1,0 +1,1 @@
+Open index.html first. All pages are intentionally in this same folder so local navigation works in both file:// and static hosting. The homepage design was not redesigned; only its internal links were wired to the corresponding pages.

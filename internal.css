@@ -1,0 +1,736 @@
+
+/* GROV SYSTEMS INTERNAL PAGES — derived from locked homepage visual language */
+.internal-main{background:var(--navy)}
+.page-hero{padding:100px max(6vw,70px) 85px;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
+.page-hero-inner{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:end}
+.page-hero h1{max-width:900px;font-size:clamp(48px,5.7vw,82px)}
+.page-hero h1 em{font-style:normal;color:var(--gold)}
+.page-hero p{max-width:720px;font-size:19px;color:#C4CBD5;line-height:1.7}
+.hero-meta{border:1px solid rgba(201,169,110,.35);padding:28px;border-radius:18px;background:linear-gradient(145deg,#111A2B,#0B1220)}
+.hero-meta span{display:block;color:var(--gold);font-size:11px;letter-spacing:.16em;font-weight:800;text-transform:uppercase;margin-bottom:12px}.hero-meta strong{font-size:22px;line-height:1.3}
+.internal-section{padding:95px max(6vw,70px)}.internal-section.ivory{background:var(--ivory);color:var(--charcoal)}.internal-section.ivory p{color:#4F5968}.internal-inner{max-width:var(--max);margin:auto}
+.section-kicker{font-size:11px;letter-spacing:.2em;font-weight:800;color:var(--gold);text-transform:uppercase;margin-bottom:18px}.ivory .section-kicker{color:#8B6A34}
+.section-intro{max-width:760px;margin-bottom:55px}.section-intro h2{font-size:clamp(40px,4.6vw,66px)}.section-intro p{font-size:18px;line-height:1.75}
+.mega-note{font-size:13px;color:#AEB6C2;margin-top:10px}
+.category-block{margin-bottom:75px}.category-block:last-child{margin-bottom:0}.category-head{display:flex;justify-content:space-between;gap:30px;align-items:end;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:18px;margin-bottom:22px}.category-head h3{font-size:30px}.category-head p{margin:0;max-width:560px;font-size:15px}
+.solution-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.solution-item{padding:27px;border:1px solid rgba(201,169,110,.22);background:#111A2B;border-radius:13px;min-height:170px;transition:.25s}.solution-item:hover{transform:translateY(-3px);border-color:rgba(201,169,110,.55)}.solution-item h3{font-size:20px}.solution-item p{font-size:14px;color:#AEB6C2;margin-bottom:15px}.solution-item a{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--gold);font-weight:800}
+.breadcrumb{max-width:var(--max);margin:0 auto 28px;color:#8F9AAA;font-size:12px;letter-spacing:.08em}.breadcrumb a{color:#C9A96E}.breadcrumb span{margin:0 8px}
+.detail-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px}.detail-copy h2{font-size:clamp(38px,4vw,60px)}.detail-copy h3{margin-top:45px;font-size:24px}.detail-copy p{line-height:1.8}.detail-copy ul{padding-left:22px;color:#B8C0CD}.detail-copy li{padding:8px 0}.side-panel{align-self:start;border:1px solid rgba(201,169,110,.35);border-radius:20px;padding:32px;background:linear-gradient(145deg,#111A2B,#0B1220);position:sticky;top:105px}.side-panel .price{font-size:38px;color:var(--gold);font-weight:800;letter-spacing:-.03em;margin:10px 0}.side-panel small{color:#929CAB;display:block;line-height:1.6}.side-panel hr{border:0;border-top:1px solid rgba(255,255,255,.1);margin:24px 0}.side-panel strong{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#D7DDE5}
+.includes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}.include{padding:20px;border:1px solid rgba(201,169,110,.2);border-radius:10px;background:rgba(17,26,43,.55)}.include strong{font-size:14px}.include p{font-size:13px;margin:7px 0 0}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.price-card{padding:35px;border:1px solid #D9D4CD;border-radius:18px;background:#fff}.price-card.featured{border-color:var(--gold);box-shadow:0 15px 45px rgba(15,15,15,.08)}.price-card h3{font-size:24px}.price-card .price{font-size:36px;font-weight:800;color:#8B6A34;margin:15px 0 6px}.price-card .term{font-size:12px;color:#7A818B}.price-card ul{padding-left:20px;color:#4F5968;font-size:14px;line-height:1.7}.price-card li{margin:7px 0}
+.process-list{display:grid;gap:1px;border-top:1px solid rgba(255,255,255,.12)}.process-row{display:grid;grid-template-columns:100px 1fr 1fr;gap:30px;padding:35px 0;border-bottom:1px solid rgba(255,255,255,.12)}.process-row .num{font-size:14px;color:var(--gold);letter-spacing:.15em;font-weight:800}.process-row h3{font-size:28px}.process-row p{font-size:15px;margin:0}
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.case-tile{padding:35px;border:1px solid rgba(201,169,110,.2);background:#111A2B;border-radius:18px;min-height:290px;display:flex;flex-direction:column}.case-tile:nth-child(3n){transform:translateY(20px)}.case-tile h3{font-size:25px}.case-tile p{font-size:15px}.case-tile .case-link{margin-top:auto;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+.case-story{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}.case-rail{border-right:1px solid rgba(255,255,255,.12);padding-right:45px}.case-rail strong{display:block;color:var(--gold);font-size:12px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}.case-rail p{font-size:14px}.story-section{margin-bottom:55px}.story-section h3{font-size:29px}.story-section p{line-height:1.85}.story-section ul{color:#B8C0CD;line-height:1.8}
+.resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.resource-card{padding:32px;border:1px solid #DAD5CE;border-radius:18px;background:#fff;min-height:260px}.resource-card h3{font-size:25px}.resource-card p{font-size:15px}.resource-card a{color:#8B6A34;text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:800}
+.article{max-width:900px;margin:auto}.article h2{font-size:36px;margin-top:60px}.article h3{font-size:23px;margin-top:35px}.article p,.article li{font-size:17px;line-height:1.85;color:#4F5968}.article ul{padding-left:25px}
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.founder-card{border:1px solid rgba(201,169,110,.25);border-radius:20px;overflow:hidden;background:#111A2B}.founder-card img{width:100%;height:390px;object-fit:cover;object-position:center top}.founder-card .founder-body{padding:30px}.founder-body p{font-size:15px}.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.video-card{border:1px solid rgba(201,169,110,.22);border-radius:15px;overflow:hidden;background:#111A2B}.video-card iframe{width:100%;aspect-ratio:16/9;border:0}.video-card div{padding:18px;font-size:13px;color:#B9C1CC}
+.form-wrap{max-width:760px;margin:auto}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.form-field{display:flex;flex-direction:column;gap:7px}.form-field.full{grid-column:1/-1}.form-field label{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#8B6A34;font-weight:800}.form-field input,.form-field textarea,.form-field select{border:1px solid #D6D0C8;border-radius:7px;padding:15px;background:#fff;font:inherit}.form-field textarea{min-height:150px;resize:vertical}
+.roadmap-panel{max-width:980px;margin:auto;padding:65px;border:1px solid rgba(201,169,110,.42);border-radius:25px;background:linear-gradient(145deg,#111A2B,#0B1220);text-align:center}.roadmap-panel h2{font-size:clamp(40px,4.6vw,65px)}.roadmap-panel p{max-width:700px;margin:0 auto 30px}.roadmap-points{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:left;margin:40px 0}.roadmap-points div{border:1px solid rgba(201,169,110,.2);padding:18px;border-radius:10px}.roadmap-points strong{display:block;font-size:13px;color:#DCE2EA;margin-bottom:7px}.roadmap-points span{font-size:12px;color:#AAB3C1}
+.site-header .solutions-nav{position:relative}.solutions-nav>a{display:flex;align-items:center;gap:5px}.solutions-nav .arrow{font-size:12px;transition:.2s}.solutions-nav:hover .arrow{transform:rotate(180deg)}.mega-menu{position:absolute;top:28px;left:50%;transform:translateX(-50%) translateY(10px);width:min(930px,85vw);padding:28px;background:#0E1727;border:1px solid rgba(201,169,110,.35);border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;opacity:0;visibility:hidden;transition:.2s;box-shadow:0 25px 80px rgba(0,0,0,.35)}.solutions-nav:hover .mega-menu,.solutions-nav:focus-within .mega-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}.mega-menu h4{margin:0 0 12px;color:var(--gold);font-size:11px}.mega-menu a{display:block;color:#C3CAD4;font-size:13px;padding:7px 0}.mega-menu a:hover{color:#fff}.mega-footer{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:15px;display:flex;justify-content:space-between;font-size:11px;color:#8F99A8}.mobile-menu{display:none}
+@media(max-width:1050px){.page-hero-inner,.detail-grid,.case-story{grid-template-columns:1fr}.solution-list,.pricing-grid{grid-template-columns:1fr 1fr}.mega-menu{width:90vw}.roadmap-points{grid-template-columns:1fr 1fr}.side-panel{position:static}.process-row{grid-template-columns:65px 1fr}.process-row p{grid-column:2}.founder-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.page-hero,.internal-section{padding-left:22px;padding-right:22px}.page-hero{padding-top:65px}.page-hero h1{font-size:46px}.page-hero p{font-size:17px}.solution-list,.pricing-grid,.case-grid,.resource-grid,.includes,.form-grid,.roadmap-points{grid-template-columns:1fr}.case-tile:nth-child(3n){transform:none}.case-story{gap:40px}.case-rail{border-right:0;border-bottom:1px solid rgba(255,255,255,.12);padding:0 0 30px}.roadmap-panel{padding:42px 24px}.desktop-nav{display:none!important}.menu-btn{display:block!important}.mega-menu{display:none}.site-header .solutions-nav{display:none}}
+
+
+/* === V3 INTERNAL SITE POLISH === */
+.nav-arrow{font-size:10px;display:inline-block;margin-left:3px;opacity:.75;transition:transform .2s ease,color .2s ease}.desktop-nav a:hover .nav-arrow{transform:translateY(2px);color:var(--gold)}
+.footer{background:#0B1220!important;border-top:1px solid rgba(201,169,110,.22)}
+.page-hero{min-height:560px;display:flex;flex-direction:column;justify-content:center}
+.page-hero-inner{align-items:center}
+.internal-section.navy-deep{background:#0B1220;color:#fff}
+.decision-section{background:var(--midnight);padding:90px max(6vw,70px)}
+.decision-grid{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:start}
+.decision-grid h2{font-size:clamp(38px,4.2vw,60px)}
+.decision-grid p{max-width:700px}
+.decision-list{display:grid;gap:12px}
+.decision-list div{padding:22px 24px;border:1px solid rgba(201,169,110,.22);background:#0B1220;border-radius:10px}
+.decision-list strong{display:block;color:#F6F3EC;margin-bottom:6px;font-size:14px}
+.decision-list span{display:block;color:#AEB6C2;font-size:14px;line-height:1.6}
+.page-action{padding:95px max(6vw,70px);background:#0B1220;text-align:center;border-top:1px solid rgba(255,255,255,.07)}
+.page-action .action-inner{max-width:900px;margin:auto}
+.page-action h2{font-size:clamp(40px,4.5vw,64px)}
+.page-action p{max-width:680px;margin:0 auto 28px}
+.rebrand-story{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:55px}
+.rebrand-card{padding:32px;border:1px solid rgba(201,169,110,.2);border-radius:16px;background:#111A2B}
+.rebrand-card h3{font-size:24px}.rebrand-card p{font-size:15px}
+.guest-form{max-width:900px;margin:auto}.guest-form .form-grid{margin-top:25px}
+.guest-intro{max-width:800px;margin:0 auto 50px;text-align:center}
+@media(max-width:900px){.decision-grid,.rebrand-story{grid-template-columns:1fr}}
+
+.different-card .bold{color:#FFFFFF!important}
+
+/* V6 editorial palette + readable contrast */
+.internal-main{background:var(--ivory)}
+.internal-section.white{background:#fff;color:var(--charcoal)}
+.internal-section.white p,.internal-section.white li{color:#4F5968}
+.internal-section.ivory{background:var(--ivory);color:var(--charcoal)}
+.internal-section.ivory p,.internal-section.ivory li{color:#4F5968}
+.internal-section.ivory .include{background:#fff;border-color:#DED8D0}
+.internal-section.white .include{background:var(--ivory);border-color:#DED8D0}
+.internal-section.navy-deep{background:var(--navy);color:#fff}
+.internal-section.navy-deep p,.internal-section.navy-deep li{color:#C4CBD5}
+.internal-section.navy-deep .include{background:#111A2B}
+.decision-section{background:var(--navy)}
+.page-action{background:var(--navy)}
+.page-action p{color:#C4CBD5}
+.detail-copy h2,.section-intro h2,.decision-grid h2{letter-spacing:-.025em}
+.detail-copy h3{color:inherit}
+.internal-section.white .section-kicker,.internal-section.ivory .section-kicker{color:#8B6A34}
+.internal-section.white .process-row,.internal-section.ivory .process-row{border-color:#DDD7CF}
+.internal-section.white .process-row p,.internal-section.ivory .process-row p{color:#4F5968}
+.internal-section.white .process-row h3,.internal-section.ivory .process-row h3{color:var(--charcoal)}
+
+/* === V7 CONTRAST + NAVIGATION === */
+.internal-main{background:var(--ivory)}
+.internal-section{background:var(--ivory);color:var(--charcoal)}
+.internal-section.white{background:#fff;color:var(--charcoal)}
+.internal-section.ivory{background:var(--ivory);color:var(--charcoal)}
+.internal-section.navy-deep,.decision-section,.page-action{background:var(--navy);color:#fff}
+.internal-section.navy-deep h1,.internal-section.navy-deep h2,.internal-section.navy-deep h3,.internal-section.navy-deep h4,.internal-section.navy-deep strong,.decision-section h1,.decision-section h2,.decision-section h3,.decision-section h4,.decision-section strong,.page-action h1,.page-action h2,.page-action h3,.page-action h4{color:#fff}
+.internal-section.navy-deep p,.internal-section.navy-deep li,.decision-section p,.decision-section li,.page-action p{color:#D5DBE4}
+.internal-section.ivory h1,.internal-section.ivory h2,.internal-section.ivory h3,.internal-section.ivory h4,.internal-section.white h1,.internal-section.white h2,.internal-section.white h3,.internal-section.white h4{color:var(--charcoal)}
+.internal-section.ivory .section-kicker,.internal-section.white .section-kicker{color:#8B6A34}
+.internal-section.ivory .eyebrow,.internal-section.white .eyebrow{color:#8B6A34}
+.internal-section.ivory .detail-copy strong,.internal-section.white .detail-copy strong{color:var(--charcoal)}
+.internal-section.ivory .side-panel,.internal-section.white .side-panel{background:var(--navy);color:#fff}
+.internal-section.ivory .side-panel strong,.internal-section.white .side-panel strong{color:#fff}
+.internal-section.ivory .side-panel small,.internal-section.white .side-panel small{color:#C4CBD5}
+.resource-mega{position:absolute;top:28px;left:50%;transform:translateX(-50%) translateY(10px);width:min(760px,82vw);padding:26px;background:#0E1727;border:1px solid rgba(201,169,110,.35);border-radius:16px;display:grid;grid-template-columns:1fr 1fr;gap:22px;opacity:0;visibility:hidden;transition:.2s;box-shadow:0 25px 80px rgba(0,0,0,.35);z-index:30}
+.resources-nav{position:relative}.resources-nav>a{display:flex;align-items:center;gap:5px}.resources-nav:hover .resource-mega,.resources-nav:focus-within .resource-mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.resource-mega h4{margin:0 0 12px;color:var(--gold);font-size:11px}.resource-mega a{display:block;color:#C3CAD4;font-size:13px;padding:7px 0}.resource-mega a:hover{color:#fff}.resource-mega .mega-footer{grid-column:1/-1}
+/* Never allow dark text to render on navy chapters. */
+.navy-deep *,.decision-section *,.page-action *{--contrast-text:#fff}.navy-deep .detail-copy p,.navy-deep .detail-copy li{color:#D5DBE4}
+@media(max-width:760px){.resource-mega{display:none}.resources-nav{display:none}}
+
+.booking-shell{max-width:1100px;margin:45px auto 0;background:#fff;border-radius:22px;overflow:hidden;border:1px solid rgba(201,169,110,.45);min-height:820px}.booking-shell iframe{display:block;width:100%;height:820px;border:0;background:#fff}
+
+/* === V8 GLOBAL CONTRAST PASS ===
+   Explicit surface/type pairing. No inherited dark text on navy surfaces,
+   and no washed-out grey text on ivory/white surfaces. */
+
+/* Dark hero / dark utility surfaces */
+.page-hero,
+.page-hero .hero-meta,
+.internal-section.navy-deep,
+.decision-section,
+.page-action,
+.roadmap-panel,
+.case-rail,
+.side-panel {
+  color: #F7F8FA;
+}
+
+.page-hero h1,
+.page-hero h2,
+.page-hero h3,
+.page-hero h4,
+.page-hero strong,
+.page-hero .hero-meta strong,
+.internal-section.navy-deep h1,
+.internal-section.navy-deep h2,
+.internal-section.navy-deep h3,
+.internal-section.navy-deep h4,
+.internal-section.navy-deep strong,
+.decision-section h1,
+.decision-section h2,
+.decision-section h3,
+.decision-section h4,
+.decision-section strong,
+.page-action h1,
+.page-action h2,
+.page-action h3,
+.page-action h4,
+.page-action strong,
+.roadmap-panel h1,
+.roadmap-panel h2,
+.roadmap-panel h3,
+.roadmap-panel h4,
+.roadmap-panel strong,
+.side-panel h1,
+.side-panel h2,
+.side-panel h3,
+.side-panel h4,
+.side-panel strong,
+.case-rail h1,
+.case-rail h2,
+.case-rail h3,
+.case-rail h4,
+.case-rail strong {
+  color: #FFFFFF !important;
+}
+
+.page-hero p,
+.internal-section.navy-deep p,
+.internal-section.navy-deep li,
+.decision-section p,
+.decision-section li,
+.page-action p,
+.roadmap-panel p,
+.side-panel p,
+.case-rail p {
+  color: #D5DBE4 !important;
+}
+
+.page-hero .eyebrow,
+.page-hero .section-kicker,
+.internal-section.navy-deep .eyebrow,
+.internal-section.navy-deep .section-kicker,
+.decision-section .eyebrow,
+.decision-section .section-kicker,
+.page-action .eyebrow,
+.page-action .section-kicker,
+.roadmap-panel .eyebrow,
+.roadmap-panel .section-kicker,
+.side-panel .eyebrow,
+.side-panel .section-kicker,
+.case-rail .eyebrow,
+.case-rail .section-kicker {
+  color: #C9A96E !important;
+}
+
+/* Dark cards nested inside dark chapters */
+.system-banner,
+.different-card,
+.approach-card,
+.solution-item,
+.case-tile,
+.founder-card,
+.video-card,
+.roadmap-panel,
+.decision-list div {
+  color: #F7F8FA;
+}
+
+.system-banner h1,
+.system-banner h2,
+.system-banner h3,
+.system-banner h4,
+.system-banner strong,
+.different-card h1,
+.different-card h2,
+.different-card h3,
+.different-card h4,
+.different-card strong,
+.approach-card h1,
+.approach-card h2,
+.approach-card h3,
+.approach-card h4,
+.approach-card strong,
+.solution-item h1,
+.solution-item h2,
+.solution-item h3,
+.solution-item h4,
+.solution-item strong,
+.case-tile h1,
+.case-tile h2,
+.case-tile h3,
+.case-tile h4,
+.case-tile strong,
+.founder-card h1,
+.founder-card h2,
+.founder-card h3,
+.founder-card h4,
+.founder-card strong,
+.video-card h1,
+.video-card h2,
+.video-card h3,
+.video-card h4,
+.video-card strong,
+.decision-list div strong {
+  color: #FFFFFF !important;
+}
+
+.system-banner p,
+.different-card p,
+.approach-card p,
+.solution-item p,
+.case-tile p,
+.founder-card p,
+.video-card p,
+.decision-list div span {
+  color: #C8D0DA !important;
+}
+
+/* Light editorial surfaces: charcoal headlines and readable slate body copy. */
+.internal-section.white,
+.internal-section.ivory {
+  color: #151A23;
+}
+.internal-section.white h1,
+.internal-section.white h2,
+.internal-section.white h3,
+.internal-section.white h4,
+.internal-section.white strong,
+.internal-section.ivory h1,
+.internal-section.ivory h2,
+.internal-section.ivory h3,
+.internal-section.ivory h4,
+.internal-section.ivory strong,
+.internal-section.white .detail-copy strong,
+.internal-section.ivory .detail-copy strong {
+  color: #151A23 !important;
+}
+.internal-section.white p,
+.internal-section.white li,
+.internal-section.ivory p,
+.internal-section.ivory li,
+.article p,
+.article li {
+  color: #4F5968 !important;
+}
+.internal-section.white .section-kicker,
+.internal-section.ivory .section-kicker,
+.internal-section.white .eyebrow,
+.internal-section.ivory .eyebrow {
+  color: #8B6A34 !important;
+}
+
+/* White cards/panels on light pages */
+.internal-section.white .price-card,
+.internal-section.ivory .price-card,
+.internal-section.white .resource-card,
+.internal-section.ivory .resource-card,
+.internal-section.white .founder-card,
+.internal-section.ivory .founder-card {
+  color: #151A23;
+}
+.internal-section.white .price-card h1,
+.internal-section.white .price-card h2,
+.internal-section.white .price-card h3,
+.internal-section.white .price-card h4,
+.internal-section.white .resource-card h1,
+.internal-section.white .resource-card h2,
+.internal-section.white .resource-card h3,
+.internal-section.white .resource-card h4,
+.internal-section.ivory .price-card h1,
+.internal-section.ivory .price-card h2,
+.internal-section.ivory .price-card h3,
+.internal-section.ivory .price-card h4,
+.internal-section.ivory .resource-card h1,
+.internal-section.ivory .resource-card h2,
+.internal-section.ivory .resource-card h3,
+.internal-section.ivory .resource-card h4 {
+  color: #151A23 !important;
+}
+
+/* Inline calculator result was previously too dark on the navy panel. */
+#calcResult { color: #F7F8FA !important; }
+
+/* Homepage: the system banner is a navy surface, so its copy must stay white. */
+.system-banner h3,
+.system-banner p,
+.system-banner a {
+  color: #FFFFFF !important;
+}
+.system-banner .btn-gold { color: #0B1220 !important; }
+
+/* Homepage: the strategic comparison card is also dark. */
+.different-card .bold,
+.different-card .closing strong,
+.strategy-line strong:last-child {
+  color: #FFFFFF !important;
+}
+
+/* Ensure navigation dropdowns retain their dark-surface contrast. */
+.mega-menu,
+.resource-mega,
+.homepage-mega-menu {
+  color: #F7F8FA;
+}
+.mega-menu a,
+.resource-mega a,
+.homepage-mega-menu a { color: #C8D0DA !important; }
+.mega-menu a:hover,
+.resource-mega a:hover,
+.homepage-mega-menu a:hover { color: #FFFFFF !important; }
+
+
+/* === V9 FINAL CONTRAST LOCK ===
+   Every light internal chapter gets a dark navy type hierarchy by default.
+   Every dark component explicitly owns a light type hierarchy. */
+.internal-section:not(.navy-deep),
+.internal-section.white,
+.internal-section.ivory {
+  color: var(--navy) !important;
+}
+.internal-section:not(.navy-deep) h1,
+.internal-section:not(.navy-deep) h2,
+.internal-section:not(.navy-deep) h3,
+.internal-section:not(.navy-deep) h4,
+.internal-section:not(.navy-deep) strong,
+.internal-section.white h1,
+.internal-section.white h2,
+.internal-section.white h3,
+.internal-section.white h4,
+.internal-section.white strong,
+.internal-section.ivory h1,
+.internal-section.ivory h2,
+.internal-section.ivory h3,
+.internal-section.ivory h4,
+.internal-section.ivory strong {
+  color: var(--navy) !important;
+}
+.internal-section:not(.navy-deep) p,
+.internal-section:not(.navy-deep) li,
+.internal-section.white p,
+.internal-section.white li,
+.internal-section.ivory p,
+.internal-section.ivory li {
+  color: #4F5968 !important;
+}
+.internal-section:not(.navy-deep) .section-kicker,
+.internal-section:not(.navy-deep) .eyebrow,
+.internal-section.white .section-kicker,
+.internal-section.white .eyebrow,
+.internal-section.ivory .section-kicker,
+.internal-section.ivory .eyebrow {
+  color: #8B6A34 !important;
+}
+/* Dark cards nested inside light chapters */
+.internal-section:not(.navy-deep) .side-panel,
+.internal-section:not(.navy-deep) .roadmap-panel,
+.internal-section:not(.navy-deep) .founder-card,
+.internal-section:not(.navy-deep) .case-tile,
+.internal-section:not(.navy-deep) .video-card,
+.internal-section:not(.navy-deep) .solution-item,
+.internal-section:not(.navy-deep) .decision-list div {
+  color: #F7F8FA !important;
+}
+.internal-section:not(.navy-deep) .side-panel h1,
+.internal-section:not(.navy-deep) .side-panel h2,
+.internal-section:not(.navy-deep) .side-panel h3,
+.internal-section:not(.navy-deep) .side-panel h4,
+.internal-section:not(.navy-deep) .side-panel strong,
+.internal-section:not(.navy-deep) .roadmap-panel h1,
+.internal-section:not(.navy-deep) .roadmap-panel h2,
+.internal-section:not(.navy-deep) .roadmap-panel h3,
+.internal-section:not(.navy-deep) .roadmap-panel h4,
+.internal-section:not(.navy-deep) .roadmap-panel strong {
+  color: #FFFFFF !important;
+}
+.internal-section:not(.navy-deep) .side-panel p,
+.internal-section:not(.navy-deep) .side-panel li,
+.internal-section:not(.navy-deep) .roadmap-panel p,
+.internal-section:not(.navy-deep) .roadmap-panel li {
+  color: #D5DBE4 !important;
+}
+.internal-section:not(.navy-deep) .side-panel .price,
+.internal-section:not(.navy-deep) .roadmap-panel .price {
+  color: var(--gold) !important;
+}
+
+/* === V9 HOMEPAGE LIGHT SOLUTIONS CHAPTER ===
+   The locked homepage uses ivory for this chapter; dark-section's old
+   white typography must not override the light editorial hierarchy. */
+.solutions.dark-section {
+  background: var(--ivory) !important;
+  color: var(--navy) !important;
+}
+.solutions.dark-section .center-heading h1,
+.solutions.dark-section .center-heading h2,
+.solutions.dark-section .center-heading h3,
+.solutions.dark-section .center-heading h4 {
+  color: var(--navy) !important;
+}
+.solutions.dark-section .center-heading p {
+  color: #4F5968 !important;
+}
+.solutions.dark-section .center-heading .eyebrow,
+.solutions.dark-section .center-heading .eyebrow.gold {
+  color: #8B6A34 !important;
+}
+.solutions.dark-section .solution-grid h3 { color: var(--navy) !important; }
+.solutions.dark-section .solution-grid p { color: #4F5968 !important; }
+.solutions.dark-section .solution-grid small { color: #667085 !important; }
+/* This remains the intentional dark anchor inside the light chapter. */
+.solutions.dark-section .system-banner {
+  background: linear-gradient(135deg, var(--midnight), var(--navy)) !important;
+  color: #FFFFFF !important;
+}
+.solutions.dark-section .system-banner h3,
+.solutions.dark-section .system-banner p { color: #FFFFFF !important; }
+.solutions.dark-section .system-banner .btn-gold { color: var(--navy) !important; }
+
+/* Navy texture/grid accents: never use black on beige surfaces. */
+.light-section,
+.internal-section.ivory,
+.internal-section.white,
+.solutions.dark-section,
+.about,
+.global {
+  --texture-line: rgba(11,18,32,.055);
+}
+
+/* FINAL OVERRIDE: dark surfaces own white copy; light surfaces own navy/slate copy. */
+.navy-deep,.decision-section,.page-action,.page-hero{color:#fff!important}
+.navy-deep h1,.navy-deep h2,.navy-deep h3,.navy-deep h4,.navy-deep strong,.decision-section h1,.decision-section h2,.decision-section h3,.decision-section h4,.decision-section strong,.page-action h1,.page-action h2,.page-action h3,.page-action h4,.page-action strong,.page-hero h1,.page-hero h2,.page-hero h3,.page-hero h4{color:#fff!important}
+.navy-deep p,.navy-deep li,.decision-section p,.decision-section li,.page-action p,.page-hero p{color:#D5DBE4!important}
+.navy-deep .eyebrow,.navy-deep .section-kicker,.decision-section .eyebrow,.decision-section .section-kicker,.page-action .eyebrow,.page-action .section-kicker,.page-hero .eyebrow,.page-hero .section-kicker{color:#C9A96E!important}
+.internal-section.ivory,.internal-section.white{color:#0B1220!important;background-image:linear-gradient(90deg,rgba(11,18,32,.04) 1px,transparent 1px),linear-gradient(rgba(11,18,32,.04) 1px,transparent 1px);background-size:72px 72px}
+.internal-section.ivory h1,.internal-section.ivory h2,.internal-section.ivory h3,.internal-section.ivory h4,.internal-section.ivory strong,.internal-section.white h1,.internal-section.white h2,.internal-section.white h3,.internal-section.white h4,.internal-section.white strong{color:#0B1220!important}
+.internal-section.ivory p,.internal-section.ivory li,.internal-section.white p,.internal-section.white li{color:#4B586B!important}
+.internal-section.ivory .eyebrow,.internal-section.ivory .section-kicker,.internal-section.white .eyebrow,.internal-section.white .section-kicker{color:#8B6A34!important}
+.internal-section.ivory .roadmap-panel,.internal-section.ivory .side-panel,.internal-section.white .roadmap-panel,.internal-section.white .side-panel{background:#0B1220!important;color:#fff!important}
+.internal-section.ivory .roadmap-panel h1,.internal-section.ivory .roadmap-panel h2,.internal-section.ivory .roadmap-panel h3,.internal-section.ivory .roadmap-panel h4,.internal-section.ivory .roadmap-panel strong,.internal-section.ivory .side-panel h1,.internal-section.ivory .side-panel h2,.internal-section.ivory .side-panel h3,.internal-section.ivory .side-panel h4,.internal-section.ivory .side-panel strong,.internal-section.white .roadmap-panel h1,.internal-section.white .roadmap-panel h2,.internal-section.white .roadmap-panel h3,.internal-section.white .roadmap-panel h4,.internal-section.white .roadmap-panel strong,.internal-section.white .side-panel h1,.internal-section.white .side-panel h2,.internal-section.white .side-panel h3,.internal-section.white .side-panel h4,.internal-section.white .side-panel strong{color:#fff!important}
+.internal-section.ivory .roadmap-panel p,.internal-section.ivory .roadmap-panel li,.internal-section.ivory .side-panel p,.internal-section.ivory .side-panel li,.internal-section.white .roadmap-panel p,.internal-section.white .roadmap-panel li,.internal-section.white .side-panel p,.internal-section.white .side-panel li{color:#D5DBE4!important}
+.internal-section.ivory .roadmap-panel .eyebrow,.internal-section.ivory .side-panel .eyebrow,.internal-section.white .roadmap-panel .eyebrow,.internal-section.white .side-panel .eyebrow{color:#C9A96E!important}
+
+/* === V11 FINAL SURFACE LOCK — NAVY / IVORY / WHITE === */
+:root{
+  --grov-navy:#0F1C2E;
+  --grov-navy-strong:#0B1626;
+  --grov-body:#3F4E62;
+  --grov-muted:#556477;
+  --grov-ivory:#F8F6F1;
+}
+
+/* Light pages: use clearly navy typography, never near-black or washed-out grey. */
+.internal-section:not(.navy-deep),
+.internal-section.white,
+.internal-section.ivory{
+  color:var(--grov-navy)!important;
+  background-color:var(--grov-ivory)!important;
+  background-image:
+    linear-gradient(90deg,rgba(15,28,46,.075) 1px,transparent 1px),
+    linear-gradient(rgba(15,28,46,.075) 1px,transparent 1px)!important;
+  background-size:72px 72px!important;
+}
+.internal-section:not(.navy-deep) h1,
+.internal-section:not(.navy-deep) h2,
+.internal-section:not(.navy-deep) h3,
+.internal-section:not(.navy-deep) h4,
+.internal-section:not(.navy-deep) strong,
+.internal-section.white h1,.internal-section.white h2,.internal-section.white h3,.internal-section.white h4,.internal-section.white strong,
+.internal-section.ivory h1,.internal-section.ivory h2,.internal-section.ivory h3,.internal-section.ivory h4,.internal-section.ivory strong{
+  color:var(--grov-navy)!important;
+}
+.internal-section:not(.navy-deep) p,
+.internal-section:not(.navy-deep) li,
+.internal-section.white p,.internal-section.white li,
+.internal-section.ivory p,.internal-section.ivory li,
+.article p,.article li{
+  color:var(--grov-body)!important;
+}
+.internal-section:not(.navy-deep) .section-kicker,
+.internal-section:not(.navy-deep) .eyebrow,
+.internal-section.white .section-kicker,.internal-section.white .eyebrow,
+.internal-section.ivory .section-kicker,.internal-section.ivory .eyebrow{
+  color:#8B6A34!important;
+}
+
+/* Dark cards inside light pages: white copy, gold accent. */
+.internal-section:not(.navy-deep) .solution-item,
+.internal-section:not(.navy-deep) .side-panel,
+.internal-section:not(.navy-deep) .roadmap-panel,
+.internal-section:not(.navy-deep) .decision-list div,
+.internal-section:not(.navy-deep) .case-tile,
+.internal-section:not(.navy-deep) .founder-card,
+.internal-section:not(.navy-deep) .video-card{
+  background:var(--grov-navy)!important;
+  color:#fff!important;
+}
+.internal-section:not(.navy-deep) .solution-item h1,
+.internal-section:not(.navy-deep) .solution-item h2,
+.internal-section:not(.navy-deep) .solution-item h3,
+.internal-section:not(.navy-deep) .solution-item h4,
+.internal-section:not(.navy-deep) .solution-item strong,
+.internal-section:not(.navy-deep) .case-tile h1,
+.internal-section:not(.navy-deep) .case-tile h2,
+.internal-section:not(.navy-deep) .case-tile h3,
+.internal-section:not(.navy-deep) .case-tile h4,
+.internal-section:not(.navy-deep) .case-tile strong,
+.internal-section:not(.navy-deep) .founder-card h1,
+.internal-section:not(.navy-deep) .founder-card h2,
+.internal-section:not(.navy-deep) .founder-card h3,
+.internal-section:not(.navy-deep) .founder-card h4,
+.internal-section:not(.navy-deep) .founder-card strong,
+.internal-section:not(.navy-deep) .solution-item p,
+.internal-section:not(.navy-deep) .case-tile p,
+.internal-section:not(.navy-deep) .founder-card p{
+  color:#fff!important;
+}
+.internal-section:not(.navy-deep) .solution-item p,
+.internal-section:not(.navy-deep) .case-tile p,
+.internal-section:not(.navy-deep) .founder-card p{
+  color:#D9E0E8!important;
+}
+.internal-section:not(.navy-deep) .solution-item a,
+.internal-section:not(.navy-deep) .case-tile a,
+.internal-section:not(.navy-deep) .founder-card a{
+  color:#C9A96E!important;
+}
+
+/* Hero is always an intentional navy surface. */
+.page-hero{
+  background:var(--grov-navy-strong)!important;
+  color:#fff!important;
+}
+.page-hero h1,.page-hero h2,.page-hero h3,.page-hero h4,.page-hero strong{color:#fff!important}
+.page-hero p{color:#D9E0E8!important}
+.page-hero .eyebrow,.page-hero .section-kicker{color:#C9A96E!important}
+
+/* Navy chapters/components: never allow black/charcoal inheritance. */
+.navy-deep,.decision-section,.page-action,
+.system-banner,.different-card,.approach-card,
+.solution-item,.case-tile,.founder-card,.video-card,
+.side-panel,.roadmap-panel,.decision-list div{
+  color:#fff!important;
+}
+.navy-deep h1,.navy-deep h2,.navy-deep h3,.navy-deep h4,.navy-deep strong,
+.decision-section h1,.decision-section h2,.decision-section h3,.decision-section h4,.decision-section strong,
+.page-action h1,.page-action h2,.page-action h3,.page-action h4,.page-action strong,
+.system-banner h1,.system-banner h2,.system-banner h3,.system-banner h4,.system-banner strong,
+.different-card h1,.different-card h2,.different-card h3,.different-card h4,.different-card strong,
+.solution-item h1,.solution-item h2,.solution-item h3,.solution-item h4,.solution-item strong,
+.case-tile h1,.case-tile h2,.case-tile h3,.case-tile h4,.case-tile strong,
+.founder-card h1,.founder-card h2,.founder-card h3,.founder-card h4,.founder-card strong,
+.video-card h1,.video-card h2,.video-card h3,.video-card h4,.video-card strong,
+.side-panel h1,.side-panel h2,.side-panel h3,.side-panel h4,.side-panel strong,
+.roadmap-panel h1,.roadmap-panel h2,.roadmap-panel h3,.roadmap-panel h4,.roadmap-panel strong{
+  color:#fff!important;
+}
+.navy-deep p,.navy-deep li,.decision-section p,.decision-section li,.page-action p,
+.system-banner p,.different-card p,.approach-card p,
+.solution-item p,.case-tile p,.founder-card p,.video-card p,
+.side-panel p,.side-panel li,.roadmap-panel p,.roadmap-panel li,
+.decision-list div span{color:#D9E0E8!important}
+
+/* Homepage light systems chapter: navy texture + navy type. */
+section.solutions.dark-section{
+  background-color:var(--grov-ivory)!important;
+  background-image:
+    linear-gradient(90deg,rgba(15,28,46,.075) 1px,transparent 1px),
+    linear-gradient(rgba(15,28,46,.075) 1px,transparent 1px)!important;
+  background-size:72px 72px!important;
+  color:var(--grov-navy)!important;
+}
+section.solutions.dark-section .center-heading h1,
+section.solutions.dark-section .center-heading h2,
+section.solutions.dark-section .center-heading h3,
+section.solutions.dark-section .center-heading h4,
+section.solutions.dark-section h2,
+section.solutions.dark-section h3{color:var(--grov-navy)!important}
+section.solutions.dark-section .center-heading p,
+section.solutions.dark-section p{color:var(--grov-body)!important}
+section.solutions.dark-section .solution-grid article{
+  background:#fff!important;color:var(--grov-navy)!important;
+}
+section.solutions.dark-section .solution-grid article h3{color:var(--grov-navy)!important}
+section.solutions.dark-section .solution-grid article p{color:var(--grov-body)!important}
+section.solutions.dark-section .solution-grid article small{color:var(--grov-muted)!important}
+section.solutions.dark-section .system-banner{
+  background:linear-gradient(135deg,var(--grov-navy),var(--grov-navy-strong))!important;
+}
+section.solutions.dark-section .system-banner h3,
+section.solutions.dark-section .system-banner p{color:#fff!important}
+
+/* Homepage founder chapter: same navy-on-ivory hierarchy and CTA. */
+section.founders-only.about.dark-section{
+  background-color:var(--grov-ivory)!important;
+  background-image:
+    linear-gradient(90deg,rgba(15,28,46,.075) 1px,transparent 1px),
+    linear-gradient(rgba(15,28,46,.075) 1px,transparent 1px)!important;
+  background-size:72px 72px!important;
+  color:var(--grov-navy)!important;
+}
+section.founders-only.about.dark-section .founders-intro h2,
+section.founders-only.about.dark-section .founder-copy h3,
+section.founders-only.about.dark-section .strategy-line,
+section.founders-only.about.dark-section .strategy-line b,
+section.founders-only.about.dark-section .strategy-line strong{color:var(--grov-navy)!important}
+section.founders-only.about.dark-section .founders-intro p,
+section.founders-only.about.dark-section .founder-copy p{color:var(--grov-body)!important}
+
+/* FINAL EDITORIAL PASS — do not turn every section into a boxed checklist.
+   Decision content is intentionally presented as open editorial rows. */
+.decision-list{gap:0!important}
+.decision-list div,
+.internal-section:not(.navy-deep) .decision-list div,
+.internal-section:not(.navy-deep) .decision-list div:hover,
+.navy-deep .decision-list div{
+  background:transparent!important;
+  border:0!important;
+  border-top:1px solid rgba(15,28,46,.16)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding:24px 0!important;
+}
+.decision-list div:last-child{border-bottom:1px solid rgba(15,28,46,.16)!important}
+.navy-deep .decision-list div,
+.dark-section .decision-list div,
+.page-hero .decision-list div,
+.page-action .decision-list div{
+  border-top-color:rgba(255,255,255,.16)!important;
+}
+.navy-deep .decision-list div:last-child,
+.dark-section .decision-list div:last-child,
+.page-hero .decision-list div:last-child,
+.page-action .decision-list div:last-child{
+  border-bottom-color:rgba(255,255,255,.16)!important;
+}
+.decision-list strong{font-size:15px!important;margin-bottom:7px!important}
+.decision-list span{font-size:15px!important;line-height:1.7!important}
+
+/* FINAL: remove the grid/checkered texture from ALL INTERNAL PAGE SURFACES.
+   The homepage retains its own approved visual treatment. Internal pages use clean
+   ivory/white/navy editorial surfaces without a tiled background. */
+.internal-section:not(.navy-deep),
+.internal-section.white,
+.internal-section.ivory,
+.internal-main .page-hero,
+.internal-main .decision-section,
+.internal-main .page-action {
+  background-image: none !important;
+}
+
+
+/* === FINAL INTERNAL FIXES — readability + editorial rhythm === */
+.internal-section:not(.navy-deep) .decision-list div,
+.internal-section.white .decision-list div,
+.internal-section.ivory .decision-list div {
+  background:transparent!important;color:var(--grov-navy)!important;border-top-color:rgba(15,28,46,.16)!important;
+}
+.internal-section:not(.navy-deep) .decision-list div:last-child,
+.internal-section.white .decision-list div:last-child,
+.internal-section.ivory .decision-list div:last-child { border-bottom-color:rgba(15,28,46,.16)!important; }
+.internal-section:not(.navy-deep) .decision-list div strong,
+.internal-section.white .decision-list div strong,
+.internal-section.ivory .decision-list div strong { color:var(--grov-navy)!important; }
+.internal-section:not(.navy-deep) .decision-list div span,
+.internal-section.white .decision-list div span,
+.internal-section.ivory .decision-list div span { color:#4B586B!important; }
+.decision-section .decision-list div,.page-action .decision-list div,.navy-deep .decision-list div { background:transparent!important;border-top-color:rgba(255,255,255,.16)!important; }
+.decision-section .decision-list div strong,.page-action .decision-list div strong,.navy-deep .decision-list div strong { color:#fff!important; }
+.decision-section .decision-list div span,.page-action .decision-list div span,.navy-deep .decision-list div span { color:#D9E0E8!important; }
+
+/* Results index: clean, even editorial rhythm — no staggered overlap. */
+.case-grid{align-items:stretch!important}
+.case-tile,.case-tile:nth-child(3n){transform:none!important;min-height:300px}
+.case-tile h3{max-width:620px}.case-tile p{max-width:680px}
+
+/* Revenue leak calculator modal */
+.grov-calc-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(7,13,24,.72);backdrop-filter:blur(12px)}
+.grov-calc-overlay.is-open{display:flex}
+.grov-calc-modal{width:min(940px,100%);max-height:min(92vh,900px);overflow:auto;position:relative;border:1px solid rgba(201,169,110,.42);border-radius:24px;background:var(--ivory);color:var(--grov-navy);box-shadow:0 35px 110px rgba(0,0,0,.42)}
+.grov-calc-head{padding:42px 48px 22px}.grov-calc-kicker{color:#8B6A34;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:13px}
+.grov-calc-head h2{font-size:clamp(38px,5vw,62px);color:var(--grov-navy)!important;margin-bottom:14px}.grov-calc-head h2 em{font-style:normal;color:#8B6A34}.grov-calc-head p{max-width:720px;color:#4B586B!important;font-size:17px;line-height:1.7}
+.grov-calc-close{position:absolute;top:20px;right:22px;width:42px;height:42px;border:1px solid #D6D0C8;border-radius:50%;background:#fff;color:var(--grov-navy);font-size:24px;line-height:1;cursor:pointer}
+.grov-calc-body{padding:0 48px 44px}.grov-calc-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grov-calc-field{display:flex;flex-direction:column;gap:7px}.grov-calc-field.full{grid-column:1/-1}
+.grov-calc-field label{color:#8B6A34;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.grov-calc-field input{width:100%;box-sizing:border-box;border:1px solid #D6D0C8;border-radius:7px;padding:14px 15px;background:#fff;color:#151A23;font:inherit;font-size:16px}
+.grov-calc-field input:focus{outline:2px solid rgba(201,169,110,.35);outline-offset:1px;border-color:#C9A96E}.grov-calc-actions{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.grov-calc-note{color:#667085;font-size:12px;max-width:470px;line-height:1.6}
+.grov-calc-result{display:none;margin-top:26px;padding:30px;border-radius:16px;background:var(--grov-navy);color:#fff}.grov-calc-result.is-visible{display:block}.grov-calc-result h3{color:#fff!important;font-size:30px;margin-bottom:8px}.grov-calc-result p{color:#D9E0E8!important;line-height:1.7}
+.grov-result-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.grov-result-metric{padding:18px;border:1px solid rgba(201,169,110,.25);border-radius:10px;background:#111A2B}.grov-result-metric span{display:block;color:#AEB8C5;font-size:11px;text-transform:uppercase;letter-spacing:.11em;margin-bottom:8px}.grov-result-metric strong{display:block;color:#C9A96E!important;font-size:25px}
+.grov-result-cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}.grov-result-cta .btn-gold{color:var(--grov-navy)!important}.grov-calc-trigger{cursor:pointer}
+@media(max-width:760px){.grov-calc-overlay{padding:12px;align-items:flex-end}.grov-calc-modal{max-height:94vh;border-radius:20px}.grov-calc-head{padding:32px 22px 18px}.grov-calc-body{padding:0 22px 28px}.grov-calc-form,.grov-result-metrics{grid-template-columns:1fr}.grov-calc-field.full{grid-column:auto}.grov-calc-head h2{font-size:40px}}
+
+
+/* Results index — editorial case-study directory, not a generic card wall. */
+.case-list{border-top:1px solid #D8D2CA}
+.case-row{display:grid;grid-template-columns:120px minmax(0,1fr) 190px;gap:34px;align-items:center;padding:34px 0;border-bottom:1px solid #D8D2CA;transition:background .2s ease, padding .2s ease}
+.case-row:hover{background:rgba(255,255,255,.55);padding-left:18px;padding-right:18px}
+.case-row-num{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#8B6A34}
+.case-row-copy h3{margin:0 0 9px;color:var(--grov-navy)!important;font-size:28px;letter-spacing:-.02em}
+.case-row-copy p{margin:0;max-width:760px;color:#4B586B!important;font-size:15px;line-height:1.7}
+.case-row-link{justify-self:end;color:#8B6A34;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+.case-row-link span{font-size:15px;margin-left:4px}
+@media(max-width:900px){.case-row{grid-template-columns:85px minmax(0,1fr);gap:22px}.case-row-link{grid-column:2;justify-self:start}}
+@media(max-width:600px){.case-row{grid-template-columns:1fr;gap:10px;padding:25px 0}.case-row:hover{padding-left:0;padding-right:0}.case-row-copy h3{font-size:23px}.case-row-link{grid-column:auto}}
