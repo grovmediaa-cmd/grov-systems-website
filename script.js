@@ -1,14 +1,19 @@
-document.querySelector('.menu-btn')?.addEventListener('click',()=> {
-  const nav=document.querySelector('.desktop-nav');
-  if(!nav) return;
-  const open=nav.dataset.open==='1';
-  nav.dataset.open=open?'0':'1';
-  nav.style.display=open?'none':'flex';
-  nav.style.position='absolute';
-  nav.style.top='82px';nav.style.left='0';nav.style.right='0';
-  nav.style.padding='25px';
-  nav.style.background='#111A2B';
-  nav.style.flexDirection='column';
+document.addEventListener('DOMContentLoaded',()=>{
+  const header=document.querySelector('.site-header');
+  const nav=header?.querySelector('.desktop-nav');
+  const btn=header?.querySelector('.menu-btn');
+  if(!header||!nav||!btn) return;
+  btn.setAttribute('aria-expanded','false');
+  btn.addEventListener('click',()=>{
+    const open=header.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    header.classList.remove('menu-open');
+    btn.setAttribute('aria-expanded','false');
+    btn.setAttribute('aria-label','Open menu');
+  }));
 });
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
