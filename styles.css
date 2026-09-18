@@ -966,3 +966,135 @@ section.founders-only.about .founder-closure .btn-gold{white-space:nowrap!import
 .phase:hover{border-color:rgba(201,169,110,.68)!important;}
 .include{border:1px solid rgba(15,28,46,.24)!important;}
 .include:hover{border-color:rgba(201,169,110,.68)!important;}
+
+
+/* === GROV UNIVERSAL RESPONSIVE + REBRAND CONTRAST FIX === */
+/* Desktop layout remains unchanged above 980px. This layer only fixes responsive behavior and the requested rebrand card contrast. */
+.rebrand-card,
+.internal-section.ivory .rebrand-card,
+.internal-section.white .rebrand-card{
+  background:#111A2B !important;
+  color:#F6F3EC !important;
+  border-color:rgba(201,169,110,.30) !important;
+}
+.rebrand-card h3,
+.rebrand-card strong,
+.rebrand-card .section-kicker{
+  color:#FFFFFF !important;
+}
+.rebrand-card p,
+.internal-section.ivory .rebrand-card p,
+.internal-section.white .rebrand-card p{
+  color:#D5DBE4 !important;
+}
+
+/* Media should never force a horizontal scroll on phones/tablets. */
+img,video,iframe,svg,canvas{max-width:100%;height:auto}
+table{max-width:100%;display:block;overflow-x:auto}
+pre,code{max-width:100%;overflow-x:auto}
+body{overflow-x:hidden}
+input,textarea,select,button{max-width:100%;font:inherit}
+button,.btn{touch-action:manipulation}
+
+/* Tablet/mobile navigation: use the existing menu button instead of squeezing the desktop nav. */
+@media(max-width:980px){
+  .site-header{height:82px;padding:0 24px}
+  .site-header .desktop-nav{display:none}
+  .site-header .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;padding:0;border:1px solid rgba(255,255,255,.16);border-radius:7px;cursor:pointer}
+  .site-header.menu-open .desktop-nav{
+    display:flex;
+    position:absolute;
+    top:82px;
+    left:0;
+    right:0;
+    max-height:calc(100vh - 82px);
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:22px 24px 30px;
+    background:#111A2B;
+    border-top:1px solid rgba(255,255,255,.08);
+    flex-direction:column;
+    gap:0;
+    z-index:30;
+  }
+  .site-header.menu-open .desktop-nav > a,
+  .site-header.menu-open .desktop-nav > .solutions-nav,
+  .site-header.menu-open .desktop-nav > .resources-nav{
+    width:100%;
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  /* Keep the mobile menu simple: the dedicated Solutions/Resources pages contain the full link collections. */
+  .site-header.menu-open .mega-menu,
+  .site-header.menu-open .resource-mega{display:none !important}
+  .site-header.menu-open .solutions-nav > a,
+  .site-header.menu-open .resources-nav > a{display:flex;align-items:center;justify-content:space-between;width:100%}
+  .site-header.menu-open .desktop-nav a{font-size:15px}
+  .site-header.menu-open .desktop-nav .nav-arrow{display:none}
+  .site-header.menu-open .desktop-nav::after{
+    content:"Get Your Growth Roadmap →";
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:50px;
+    margin-top:20px;
+    padding:0 20px;
+    border:1px solid #C9A96E;
+    border-radius:7px;
+    color:#0B1220;
+    background:#C9A96E;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+  }
+  .site-header.menu-open .desktop-nav::after{cursor:pointer}
+  .site-header .header-cta{display:none}
+}
+
+@media(max-width:700px){
+  h1{font-size:clamp(40px,12vw,58px);line-height:1.04}
+  h2{font-size:clamp(32px,9.5vw,46px)}
+  h3{font-size:21px}
+  p{font-size:16px}
+  .hero{padding-top:64px;padding-bottom:70px}
+  .page-hero{padding-left:22px;padding-right:22px}
+  .page-hero h1{font-size:clamp(42px,11vw,60px)}
+  .page-hero-inner{grid-template-columns:1fr;gap:32px}
+  .hero-meta{padding:22px}
+  .hero-meta strong{font-size:18px}
+  .internal-section{padding:68px 22px}
+  .internal-inner{width:100%;min-width:0}
+  .detail-grid,.founder-grid,.pricing-grid,.resource-grid,.includes,.rebrand-story{grid-template-columns:1fr}
+  .rebrand-story{gap:14px;margin-top:35px}
+  .rebrand-card{padding:24px}
+  .rebrand-card h3{font-size:22px}
+  .rebrand-card p{font-size:15px;line-height:1.7}
+  .form-wrap{width:100%;min-width:0}
+  .form-grid{grid-template-columns:1fr !important}
+  .form-field.full{grid-column:auto !important}
+  .form-field input,.form-field textarea,.form-field select{width:100%;min-width:0}
+  .page-action{padding:70px 22px}
+  .page-action .action-inner{width:100%}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .footer-col{min-width:0}
+  .footer-col a{overflow-wrap:anywhere}
+}
+
+/* Calculator modal: full-width, thumb-friendly and readable on mobile. */
+@media(max-width:700px){
+  .grov-calc-overlay{padding:10px;align-items:flex-end}
+  .grov-calc-modal{width:100%;max-width:100%;max-height:94vh;border-radius:20px;overflow:auto}
+  .grov-calc-head{padding:30px 20px 16px}
+  .grov-calc-head h2{font-size:clamp(32px,9vw,42px);line-height:1.05}
+  .grov-calc-head p{font-size:15px;line-height:1.6}
+  .grov-calc-body{padding:0 20px 24px}
+  .grov-calc-form{grid-template-columns:1fr !important;gap:14px}
+  .grov-calc-field.full{grid-column:auto !important}
+  .grov-calc-field input{width:100%;min-height:50px;font-size:16px}
+  .grov-calc-actions{grid-column:auto !important}
+  .grov-calc-actions .btn{width:100%;min-height:54px}
+  .grov-calc-result{padding:22px 0 0}
+  .grov-calc-result .btn{width:100%;margin-top:10px}
+  .grov-calc-close{top:12px;right:12px;width:40px;height:40px}
+}
