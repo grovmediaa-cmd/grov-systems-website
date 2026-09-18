@@ -1031,24 +1031,7 @@ button,.btn{touch-action:manipulation}
   .site-header.menu-open .resources-nav > a{display:flex;align-items:center;justify-content:space-between;width:100%}
   .site-header.menu-open .desktop-nav a{font-size:15px}
   .site-header.menu-open .desktop-nav .nav-arrow{display:none}
-  .site-header.menu-open .desktop-nav::after{
-    content:"Get Your Growth Roadmap →";
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:50px;
-    margin-top:20px;
-    padding:0 20px;
-    border:1px solid #C9A96E;
-    border-radius:7px;
-    color:#0B1220;
-    background:#C9A96E;
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:.11em;
-    text-transform:uppercase;
-  }
-  .site-header.menu-open .desktop-nav::after{cursor:pointer}
+  .site-header.menu-open .desktop-nav .mobile-menu-cta{display:flex;width:100%;margin-top:20px;min-height:52px}
   .site-header .header-cta{display:none}
 }
 
