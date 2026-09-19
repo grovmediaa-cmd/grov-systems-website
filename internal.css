@@ -734,3 +734,24 @@ section.founders-only.about.dark-section .founder-copy p{color:var(--grov-body)!
 .case-row-link span{font-size:15px;margin-left:4px}
 @media(max-width:900px){.case-row{grid-template-columns:85px minmax(0,1fr);gap:22px}.case-row-link{grid-column:2;justify-self:start}}
 @media(max-width:600px){.case-row{grid-template-columns:1fr;gap:10px;padding:25px 0}.case-row:hover{padding-left:0;padding-right:0}.case-row-copy h3{font-size:23px}.case-row-link{grid-column:auto}}
+
+
+/* === FINAL CONTRAST FIX: ABOUT EVOLUTION CARDS === */
+.internal-section.ivory .rebrand-card,
+.internal-section.white .rebrand-card{
+  background:#111A2B !important;
+  color:#F6F3EC !important;
+  border-color:rgba(201,169,110,.30) !important;
+}
+.internal-section.ivory .rebrand-card h3,
+.internal-section.white .rebrand-card h3{
+  color:#FFFFFF !important;
+}
+.internal-section.ivory .rebrand-card p,
+.internal-section.white .rebrand-card p{
+  color:#D5DBE4 !important;
+}
+.internal-section.ivory .rebrand-card .section-kicker,
+.internal-section.white .rebrand-card .section-kicker{
+  color:#C9A96E !important;
+}
