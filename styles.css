@@ -746,7 +746,7 @@ section.dark-section>*{position:relative;z-index:1}
 .different-card .closing strong,.strategy-line strong:last-child{color:#FFFFFF!important}
 .system-banner h3,.system-banner p{color:#FFFFFF}
 @media(max-width:1050px){.homepage-mega-menu{width:90vw}}
-@media(max-width:760px){.homepage-solutions-nav{display:none}.homepage-header .desktop-nav{display:none!important}}
+/* Homepage uses the same mobile navigation as every internal page. */
 
 /* V9: locked homepage contrast correction for the light Solutions chapter */
 .solutions.dark-section{background:var(--ivory)!important;color:var(--navy)!important}
