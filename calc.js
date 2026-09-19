@@ -18,3 +18,29 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(window.matchMedia('(max-width:760px)').matches&&!sessionStorage.getItem(sessionKey))setTimeout(()=>openCalc(true),30000);
 });
 })();
+
+
+// Universal mobile navigation for pages that load calc.js.
+// The homepage has the same handler in script.js; this keeps internal pages consistent.
+document.addEventListener('DOMContentLoaded',()=>{
+  const header=document.querySelector('.site-header');
+  const nav=header?.querySelector('.desktop-nav');
+  const btn=header?.querySelector('.menu-btn');
+  if(!header||!nav||!btn||btn.dataset.menuBound==='1') return;
+  btn.dataset.menuBound='1';
+  btn.setAttribute('aria-expanded','false');
+  btn.addEventListener('click',()=>{
+    const open=header.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+    btn.textContent=open?'×':'☰';
+  });
+  nav.addEventListener('click',e=>{
+    const link=e.target.closest('a');
+    if(!link) return;
+    header.classList.remove('menu-open');
+    btn.setAttribute('aria-expanded','false');
+    btn.setAttribute('aria-label','Open menu');
+    btn.textContent='☰';
+  });
+});
