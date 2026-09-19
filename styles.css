@@ -1002,7 +1002,7 @@ button,.btn{touch-action:manipulation}
   .site-header .desktop-nav{display:none}
   .site-header .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;padding:0;border:1px solid rgba(255,255,255,.16);border-radius:7px;cursor:pointer}
   .site-header.menu-open .desktop-nav{
-    display:flex;
+    display:flex !important;
     position:absolute;
     top:82px;
     left:0;
