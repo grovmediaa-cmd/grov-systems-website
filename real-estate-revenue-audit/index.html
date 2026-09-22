@@ -458,78 +458,95 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
     const c = calculate(), p = c.primary;
     const recs = recommendations(p.key);
     const responseNote = data.response === "Under 5 minutes"
-      ? "Your stated response speed is already under 5 minutes, so the modeled opportunity is driven more by the conversion stages than response delay."
-      : "Your response speed suggests there may be room to reduce the time between enquiry and first meaningful contact.";
-    const followNote = data.followups === "6+" || data.followups === "4–5"
-      ? "Your stated follow-up volume is relatively consistent; the larger modeled opportunity comes from conversion rather than simply adding more follow-ups."
-      : "Your stated follow-up volume leaves room to test a more consistent automated sequence.";
+      ? "Your stated response speed is already under 5 minutes, so we'd focus less on speed and more on what happens after the first response."
+      : "You reported a response time of " + data.response.toLowerCase() + ". That makes the first-response and qualification workflow worth examining alongside the conversion stage above.";
+    const followNote = ["6+","4–5"].includes(data.followups)
+      ? "You already follow up " + data.followups + " times in a typical process. The question is whether those touches are triggered by the prospect's stage and behaviour—not simply whether there are enough of them."
+      : "You reported " + data.followups + " typical follow-ups, so a consistent, stage-based follow-up sequence is worth testing.";
+    const diagnosis = p.key === "qualified"
+      ? `You’re generating around <b>${volume(data.enquiries)} enquiries every month</b>, but only <b>${p.current}%</b> become serious / qualified prospects. That means the biggest modeled opportunity in your answers appears between <b>enquiry and qualified conversation</b>.`
+      : p.key === "viewing"
+      ? `You’re generating around <b>${volume(c.q)} serious / qualified prospects every month</b>, but only <b>${p.current}%</b> move on to a property viewing. The biggest modeled opportunity appears in turning qualified intent into a scheduled viewing.`
+      : p.key === "offer"
+      ? `Your prospects are reaching property viewings, but only <b>${p.current}%</b> of those viewings become offers. The biggest modeled opportunity appears in the post-viewing experience and next-action process.`
+      : `Your prospects are reaching the offer stage, but only <b>${p.current}%</b> of offers become completed transactions. The biggest modeled opportunity appears in moving active deals through the final stage.`;
+    const why = p.key === "qualified"
+      ? "This is why we'd investigate what happens immediately after an enquiry arrives: response speed, qualification, routing and the first follow-up."
+      : p.key === "viewing"
+      ? "This is why we'd investigate property matching, viewing booking, availability and the follow-up between qualification and a scheduled viewing."
+      : p.key === "offer"
+      ? "This is why we'd investigate viewing feedback, objections, follow-up and how the next property or next conversation is surfaced."
+      : "This is why we'd investigate offer-stage follow-up, deal activity, next-action tracking and the points where an agent needs to step in.";
 
     result.innerHTML = `
       <div class="result-top">
-        <h2>Your Real Estate Revenue</h2>
+        <h2>Your Revenue Opportunity</h2>
         <div class="result-company">${escapeHtml(data.company)}</div>
         <div class="big-money">${money(p.annualOpportunity)}</div>
-        <div class="result-label">Illustrative annual commission opportunity based on the stage with the largest modeled improvement.</div>
+        <div class="result-label">Illustrative annual commission opportunity at the stage with the largest modeled improvement.</div>
         <div class="current-annual">Current estimated annual commission: <strong>${money(c.annual)}</strong></div>
-        <p class="note">This is an estimate, not guaranteed revenue. The opportunity scenarios below are illustrative and use configurable assumptions.</p>
+        <p class="note">This is a modeled scenario, not revenue currently being “lost” and not a guaranteed result.</p>
       </div>
 
       <div class="section">
-        <h3>Your current funnel</h3>
-        <p class="section-intro">A simple view of the numbers you entered and the modeled monthly flow.</p>
+        <h3>Here’s what your funnel looks like</h3>
+        <p class="section-intro">These are the monthly volumes implied by the numbers you entered.</p>
         <div class="funnel">
-          <div class="funnel-row"><strong>New enquiries</strong><span class="value">${Math.round(data.enquiries).toLocaleString()}</span><small>per month</small></div>
-          <div class="funnel-row"><strong>Serious / qualified prospects</strong><span class="value">${Math.round(c.q).toLocaleString()}</span><small>${data.qualified}% conversion</small></div>
-          <div class="funnel-row"><strong>Property viewings</strong><span class="value">${Math.round(c.v).toLocaleString()}</span><small>${data.viewing}% conversion</small></div>
-          <div class="funnel-row"><strong>Offers</strong><span class="value">${Math.round(c.o).toLocaleString()}</span><small>${data.offer}% conversion</small></div>
-          <div class="funnel-row"><strong>Completed transactions</strong><span class="value">${Math.round(c.t).toLocaleString()}</span><small>${data.transaction}% conversion</small></div>
+          <div class="funnel-row"><strong>New enquiries</strong><span class="value">${volume(data.enquiries)}</span><small>per month</small></div>
+          <div class="funnel-row"><strong>Serious / qualified prospects</strong><span class="value">${volume(c.q)}</span><small>${data.qualified}% of enquiries</small></div>
+          <div class="funnel-row"><strong>Property viewings</strong><span class="value">${volume(c.v)}</span><small>${data.viewing}% of qualified</small></div>
+          <div class="funnel-row"><strong>Offers</strong><span class="value">${volume(c.o)}</span><small>${data.offer}% of viewings</small></div>
+          <div class="funnel-row"><strong>Completed transactions</strong><span class="value">${volume(c.t)}</span><small>${data.transaction}% of offers</small></div>
         </div>
       </div>
 
       <div class="section">
         <div class="opportunity">
-          <div class="opportunity-tag">WHERE THE BIGGEST OPPORTUNITY APPEARS</div>
+          <div class="opportunity-tag">THE MAIN THING WE'D INVESTIGATE</div>
           <h3>${p.label}</h3>
           <div class="opportunity-grid">
-            <div class="mini"><span>Current conversion</span><strong>${p.current}%</strong></div>
+            <div class="mini"><span>Your current conversion</span><strong>${p.current}%</strong></div>
             <div class="mini"><span>Illustrative scenario</span><strong>${p.scenario}%</strong></div>
-            <div class="mini"><span>Annual opportunity</span><strong>${money(p.annualOpportunity)}</strong></div>
+            <div class="mini"><span>Modeled annual opportunity</span><strong>${money(p.annualOpportunity)}</strong></div>
           </div>
-          <p>You currently generate around <b>${Math.round(stageVolume(c, p.key)).toLocaleString()}</b> ${stageUnit(p.key)} per month, with <b>${p.current}%</b> converting at this stage. Based on the scenario used in this audit, improving this stage to <b>${p.scenario}%</b> could create an estimated <b>${money(p.annualOpportunity)}</b> in additional annual commission.</p><p style="margin-top:9px">This does not mean that amount is currently being lost.</p>
+          <p>If this stage improved from <b>${p.current}%</b> to <b>${p.scenario}%</b> while the other inputs stayed the same, the model produces an additional <b>${money(p.annualOpportunity)}</b> in annual commission.</p>
+          <p style="margin-top:9px">That is a scenario used to show the economic weight of this stage—not a claim that this amount is currently being lost.</p>
         </div>
       </div>
 
       <div class="section">
-        <h3>What stood out</h3>
-        <p class="insight">${buildInsight(c)}</p>
-        <p class="insight" style="margin-top:9px">${responseNote} ${followNote}</p>
+        <h3>What your numbers are telling us</h3>
+        <p class="insight">${diagnosis}</p>
+        <p class="insight" style="margin-top:12px">${responseNote}</p>
+        <p class="insight" style="margin-top:12px">${followNote}</p>
+        <p class="insight" style="margin-top:12px">${why}</p>
       </div>
 
       <div class="section">
-        <h3>Illustrative scenarios</h3>
-        <p class="section-intro">These are scenario calculations, not Dubai industry benchmarks. Grov can change the assumptions before using this in a live campaign.</p>
+        <h3>Where the modeled opportunity comes from</h3>
+        <p class="section-intro">Each scenario changes only one stage so you can see how much economic weight each part of the funnel carries. These are illustrative assumptions, not industry benchmarks.</p>
         <div class="scenarios">
-          ${c.opportunities.slice().sort((a,b)=>["qualified","viewing","offer","transaction"].indexOf(a.key)-["qualified","viewing","offer","transaction"].indexOf(b.key)).map((s,i)=>`
+          ${c.opportunities.slice().sort((a,b)=>["qualified","viewing","offer","transaction"].indexOf(a.key)-["qualified","viewing","offer","transaction"].indexOf(b.key)).map((x,i)=>`
             <div class="scenario">
               <div class="tag">SCENARIO ${String.fromCharCode(65+i)}</div>
-              <h4>${s.label}</h4>
-              <strong>${money(s.annualOpportunity)}</strong>
-              <p>${s.current}% → ${s.scenario}% conversion in this stage.</p>
+              <h4>${x.label}</h4>
+              <strong>${money(x.annualOpportunity)}</strong>
+              <p>${x.current}% → ${x.scenario}% conversion at this stage.</p>
             </div>`).join("")}
         </div>
       </div>
 
       <div class="section">
-        <h3>What we'd automate first</h3>
-        <p class="section-intro">Based on the stage with the largest modeled opportunity and the answers you provided.</p>
+        <h3>What we'd fix first</h3>
+        <p class="section-intro">Because your largest modeled opportunity is at <b>${p.label}</b>, these are the workflows we'd investigate first. The goal is not to replace your agents—it is to remove repetitive gaps around them.</p>
         <div class="recs">
           ${recs.map((r,i)=>`<div class="rec"><div class="rec-no">0${i+1}</div><div><strong>${r[0]}</strong><p>${r[1]}</p></div></div>`).join("")}
         </div>
       </div>
 
       <div class="cta">
-        <h3>Ready to Build This?</h3>
-        <p>You’ve seen where the opportunity appears and what we’d automate first. We’ll map those workflows to your actual CRM, WhatsApp and sales process, then validate the numbers with you before recommending anything.</p>
+        <h3>Ready to Map the Opportunity?</h3>
+        <p>You've seen where the biggest modeled opportunity appears. Next, we'll map that stage to your actual CRM, WhatsApp and sales process—and show you what should be automated, what should stay human, and what we'd build first.</p>
         <button class="primary gold" id="breakdownBtn" type="button">Get My Automation Breakdown →</button>
         <br>
         <button class="secondary" id="emailBtn" type="button">Not ready? Email me the report</button>
@@ -537,18 +554,12 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
     `;
 
     document.getElementById("breakdownBtn").addEventListener("click", () => {
-      if(CONFIG.bookingUrl){
-        window.location.href = CONFIG.bookingUrl;
-      } else {
-        alert("Add your Grov Systems booking/calendar URL in CONFIG.bookingUrl to activate the Automation Breakdown CTA.");
-      }
+      if(CONFIG.bookingUrl) window.location.href = CONFIG.bookingUrl;
     });
 
     document.getElementById("emailBtn").addEventListener("click", () => {
       const subject = encodeURIComponent("My Grov Revenue Audit");
-      const body = encodeURIComponent(
-        `Hi Grov Systems,%0D%0A%0D%0AI completed the Real Estate Revenue Audit for ${data.company}.%0D%0A%0D%0AMy primary opportunity: ${p.label}%0D%0AEstimated annual commission: ${money(c.annual)}%0D%0AIllustrative annual opportunity: ${money(p.annualOpportunity)}%0D%0A%0D%0APlease send me my report.`
-      );
+      const body = encodeURIComponent(`Hi Grov Systems,\n\nI completed the Real Estate Revenue Audit for ${data.company}.\n\nMy primary opportunity: ${p.label}\nEstimated annual commission: ${money(c.annual)}\nIllustrative annual opportunity: ${money(p.annualOpportunity)}\n\nPlease send me my report.`);
       window.location.href = `mailto:${data.email}?subject=${subject}&body=${body}`;
     });
 
