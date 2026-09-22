@@ -132,16 +132,16 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
 
   <main>
     <section id="landing" class="hero">
-      <div class="eyebrow">Grov Real Estate Revenue Audit™</div>
-      <h1>How much revenue could your sales process be generating?</h1>
-      <p class="hero-copy">A 2-minute revenue audit built for Dubai real estate brokerages. Enter a few numbers from your current sales process and we'll estimate where additional revenue may be available across enquiries, viewings and transactions.</p>
-      <button class="primary" id="startBtn" type="button">Run My Revenue Audit →</button>
+      <div class="eyebrow">Grov Real Estate Revenue Leak Audit™</div>
+      <h1>Where is your brokerage leaking revenue?</h1>
+      <p class="hero-copy">A 2-minute revenue leak audit built for Dubai real estate brokerages. Enter a few numbers from your current sales process and we'll identify where the biggest modeled revenue opportunity appears across enquiries, viewings, offers and transactions.</p>
+      <button class="primary" id="startBtn" type="button">Run My Revenue Leak Audit →</button>
       <div class="micro">Takes about 2 minutes. No CRM access required.</div>
 
       <div class="what">
-        <div class="what-card"><div class="num">01</div><h3>Your current numbers</h3><p>A simple view of the numbers you entered.</p></div>
-        <div class="what-card"><div class="num">02</div><h3>Revenue opportunity</h3><p>An estimate based on your current enquiry, viewing and transaction funnel.</p></div>
-        <div class="what-card"><div class="num">03</div><h3>Where we'd automate</h3><p>A short explanation of which parts of the process could potentially be automated.</p></div>
+        <div class="what-card"><div class="num">01</div><h3>Your sales funnel</h3><p>See how enquiries move through your current sales process.</p></div>
+        <div class="what-card"><div class="num">02</div><h3>Your revenue leak</h3><p>See which stage has the largest modeled revenue opportunity.</p></div>
+        <div class="what-card"><div class="num">03</div><h3>How we'd recover it</h3><p>See which workflows we'd investigate first to address the leak.</p></div>
       </div>
     </section>
 
@@ -223,8 +223,8 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
         </div>
 
         <div class="step" data-step="2">
-          <h2 class="step-title">Two quick process questions.</h2>
-          <p class="step-sub">These help us identify where automation may have the most practical impact.</p>
+          <h2 class="step-title">Two quick process questions</h2>
+          <p class="step-sub">These help us identify where the revenue leak may be reinforced by response time and follow-up.</p>
           <div class="grid">
             <div class="field" data-field="response">
               <label for="response">How quickly does your team typically respond to a new enquiry?</label>
@@ -244,8 +244,8 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
               <div class="error">Please select an answer.</div>
             </div>
           </div>
-          <div class="navrow"><button class="back" type="button">← Back</button><button class="primary" id="calculateBtn" type="button">See My Revenue Opportunity →</button></div>
-          <div class="step-note">Your results are estimates based on the information you provide.</div>
+          <div class="navrow"><button class="back" type="button">← Back</button><button class="primary" id="calculateBtn" type="button">See My Revenue Leak →</button></div>
+          <div class="step-note">Your results are illustrative scenarios based on the information you provide.</div>
         </div>
       </form>
     </section>
@@ -253,7 +253,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
     <section id="result" class="panel result hidden" aria-live="polite"></section>
   </main>
 
-  <div class="footer">Estimates are illustrative and based on information you provide. They are not guaranteed revenue.</div>
+  <div class="footer">Revenue-leak scenarios are illustrative and based on the information you provide. They are not guaranteed revenue.</div>
 </div>
 
 <script defer>
@@ -489,17 +489,17 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
 
     result.innerHTML = `
       <div class="result-top">
-        <h2>Your Revenue Opportunity</h2>
+        <h2>Your Revenue Leak</h2>
         <div class="result-company">${escapeHtml(data.company)}</div>
         <div class="big-money">${money(p.annualOpportunity)}</div>
-        <div class="result-label">Illustrative annual commission opportunity at the stage with the largest modeled improvement.</div>
-        <div class="current-annual">Current estimated annual commission: <strong>${money(c.annual)}</strong></div>
-        <p class="note">This is a modeled scenario, not revenue currently being “lost” and not a guaranteed result.</p>
+        <div class="result-label">Illustrative annual commission opportunity associated with improving the stage with the largest modeled revenue leak.</div>
+        <div class="current-annual">Current modeled annual commission: <strong>${money(c.annual)}</strong></div>
+        <p class="note">This is a modeled scenario, not a claim that this amount is currently being lost and not a guaranteed result.</p>
       </div>
 
       <div class="section">
-        <h3>Here’s what your funnel looks like</h3>
-        <p class="section-intro">These are the monthly volumes implied by the numbers you entered.</p>
+        <h3>Where your enquiries move — and where they drop off</h3>
+        <p class="section-intro">This is the sales path implied by the numbers you entered. The stage with the largest modeled financial impact is highlighted below.</p>
         <div class="funnel">
           <div class="funnel-row"><strong>New enquiries</strong><span class="value">${volume(data.enquiries)}</span><small>per month</small></div>
           <div class="funnel-row"><strong>Serious / qualified prospects</strong><span class="value">${volume(c.q)}</span><small>${data.qualified}% of enquiries</small></div>
@@ -511,7 +511,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
 
       <div class="section">
         <div class="opportunity">
-          <div class="opportunity-tag">THE MAIN THING WE'D INVESTIGATE</div>
+          <div class="opportunity-tag">YOUR BIGGEST MODELED REVENUE LEAK</div>
           <h3>${p.label}</h3>
           <div class="opportunity-grid">
             <div class="mini"><span>Your current conversion</span><strong>${p.current}%</strong></div>
@@ -524,7 +524,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
       </div>
 
       <div class="section">
-        <h3>What your numbers are telling us</h3>
+        <h3>What your revenue leak is telling us</h3>
         <p class="insight">${diagnosis}</p>
         <p class="insight" style="margin-top:12px">${responseNote}</p>
         <p class="insight" style="margin-top:12px">${followNote}</p>
@@ -532,7 +532,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
       </div>
 
       <div class="section">
-        <h3>Where the modeled opportunity comes from</h3>
+        <h3>Where the revenue leak shows up</h3>
         <p class="section-intro">Each scenario changes only one stage so you can see how much economic weight each part of the funnel carries. These are illustrative assumptions, not industry benchmarks.</p>
         <div class="scenarios">
           ${c.opportunities.slice().sort((a,b)=>["qualified","viewing","offer","transaction"].indexOf(a.key)-["qualified","viewing","offer","transaction"].indexOf(b.key)).map((x,i)=>`
@@ -546,19 +546,19 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
       </div>
 
       <div class="section">
-        <h3>What we'd fix first</h3>
-        <p class="section-intro">Because your largest modeled opportunity is at <b>${p.label}</b>, these are the workflows we'd investigate first. The goal is not to replace your agents—it is to remove repetitive gaps around them.</p>
+        <h3>How we'd recover the leak</h3>
+        <p class="section-intro">Because your largest modeled revenue leak appears at <b>${p.label}</b>, these are the workflows we'd investigate first to address that stage. The goal is not to replace your agents—it is to remove repetitive gaps around them.</p>
         <div class="recs">
           ${recs.map((r,i)=>`<div class="rec"><div class="rec-no">0${i+1}</div><div><strong>${r[0]}</strong><p>${r[1]}</p></div></div>`).join("")}
         </div>
       </div>
 
       <div class="cta">
-        <h3>Ready to Map the Opportunity?</h3>
-        <p>You've seen where the biggest modeled opportunity appears. Next, we'll map that stage to your actual CRM, WhatsApp and sales process—and show you what should be automated, what should stay human, and what we'd build first.</p>
-        <button class="primary gold" id="breakdownBtn" type="button">Get My Automation Breakdown →</button>
+        <h3>Ready to Map the Revenue Leak?</h3>
+        <p>You've seen where the biggest modeled revenue leak appears. Next, we'll map that stage to your actual CRM, WhatsApp and sales process—and show you what should be automated, what should stay human, and what we'd build first.</p>
+        <button class="primary gold" id="breakdownBtn" type="button">Map My Revenue Leak →</button>
         <br>
-        <button class="secondary" id="emailBtn" type="button">Not ready? Email me the report</button>
+        <button class="secondary" id="emailBtn" type="button">Not ready? Email me the leak report</button>
       </div>
     `;
 
@@ -567,8 +567,8 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
     });
 
     document.getElementById("emailBtn").addEventListener("click", () => {
-      const subject = encodeURIComponent("My Grov Revenue Audit");
-      const body = encodeURIComponent(`Hi Grov Systems,\n\nI completed the Real Estate Revenue Audit for ${data.company}.\n\nMy primary opportunity: ${p.label}\nEstimated annual commission: ${money(c.annual)}\nIllustrative annual opportunity: ${money(p.annualOpportunity)}\n\nPlease send me my report.`);
+      const subject = encodeURIComponent("My Grov Revenue Leak Audit");
+      const body = encodeURIComponent(`Hi Grov Systems,\n\nI completed the Real Estate Revenue Leak Audit for ${data.company}.\n\nMy primary opportunity: ${p.label}\nEstimated annual commission: ${money(c.annual)}\nIllustrative annual opportunity: ${money(p.annualOpportunity)}\n\nPlease send me my report.`);
       window.location.href = `mailto:${data.email}?subject=${subject}&body=${body}`;
     });
 
