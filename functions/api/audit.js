@@ -62,71 +62,35 @@ function followupAngle(a) {
 
 function buildEmails(a,c) {
   const p=c.primary, first=a.firstName||"there", company=a.company||"your brokerage", opp=money(p.annualOpportunity);
+  const auditUrl="https://grovsystems.com/real-estate-revenue-audit/";
+  const bookingUrl="https://gm.grovmedia.com/widget/bookings/grov-automation-breakdown";
+  const leakQuestion="Do you know where your brokerage is leaking the most revenue after an enquiry comes in?";
+  const funnel="Enquiry → Qualified → Viewing → Offer → Transaction";
 
   const e1={
-    subject:company+": the "+p.label.toLowerCase()+" opportunity in your audit",
-    body:"Hi "+first+",\n\nI reviewed the numbers you entered for "+company+".\n\nThere’s one part of your funnel I’d look at before trying to generate more enquiries:\n\n"+p.label+".\n\nYour current conversion here is "+p.current+"%. In the scenario used for your audit, moving that to "+p.scenario+"% creates a modeled annual commission opportunity of "+opp+".\n\nThat number is not a promise — it’s a way of showing where a relatively small improvement could matter financially.\n\nWhat caught my attention is this:\n\n"+stageInsight(a,c)+"\n\n"+responseAngle(a)+"\n\n"+followupAngle(a)+"\n\n"+automationAngle(a,c)+"\n\nThat’s exactly what I’d want to map before recommending any automation — what should happen automatically, where an agent should take over, and what your CRM + WhatsApp workflow would need to look like.\n\nIf you want, book your Automation Breakdown here:\nhttps://gm.grovmedia.com/widget/bookings/grov-automation-breakdown\n\nWe’ll take the numbers from the audit and turn them into an actual workflow.\n\n— Mokshita\nGrov Systems"
+    subject:"Where is "+company+" leaking revenue?",
+    body:"Hi "+first+",\n\nQuick question: "+leakQuestion+"\n\nThe path is usually simple on paper:\n\n"+funnel+"\n\nBut a brokerage can generate plenty of enquiries and still have a meaningful revenue leak between those stages.\n\nWe built a 2-minute Real Estate Revenue Leak Audit that uses your actual numbers to identify the stage with the largest modeled revenue opportunity.\n\nNo CRM access required.\n\nRun it here:\n"+auditUrl+"\n\n— Mokshita\nGrov Systems"
   };
 
   const e2={
-    subject:company+": I’d fix this stage before adding more leads",
-    body:"Hi "+first+",\n\nOne thing from your audit has been sitting with me.\n\nYou’re already putting enquiries into the top of the funnel. The more interesting question is how many of those opportunities are being moved to the next stage consistently.\n\nYour biggest modeled opportunity was:\n\n"+p.label+" — "+p.current+"% today → "+p.scenario+"% in the audit scenario.\n\nThat is why I wouldn’t start by telling you to “get more leads.”\n\nI’d first make the existing sales process harder to drop.\n\nFor "+company+", I’d want to see:\n\n• what happens the moment an enquiry arrives\n• when qualification happens\n• what triggers the next follow-up\n• when an agent is notified\n• what happens when the prospect goes quiet\n• and where the process currently depends on someone remembering to do something manually\n\nThe goal isn’t to replace your agents.\n\nIt’s to remove the repetitive gaps around them so the agent spends more time on conversations that can actually move a deal.\n\nIf you want me to map that against your actual process, this is the next step:\nhttps://gm.grovmedia.com/widget/bookings/grov-automation-breakdown\n\n— Mokshita\nGrov Systems"
+    subject:"Your biggest revenue leak may not be at the top of the funnel",
+    body:"Hi "+first+",\n\nA quick follow-up on the Revenue Leak Audit.\n\nThe useful question isn't simply “how many leads are you generating?”\n\nIt's:\n\nWhere do enquiries stop moving consistently from one stage to the next?\n\n"+funnel+"\n\nA small conversion change at one stage can carry through the rest of the funnel. The audit lets you put in your actual numbers and see which stage has the largest modeled financial impact.\n\nIf you haven't run it yet:\n"+auditUrl+"\n\nIt takes about 2 minutes.\n\n— Mokshita\nGrov Systems"
   };
 
   const e3={
-    subject:"What I’d automate first at "+company,
-    body:"Hi "+first+",\n\nIf "+company+" were sitting in front of me tomorrow, I would not start by automating everything.\n\nI’d start with the stage your audit flagged:\n\n"+p.label+".\n\nThen I’d build around three rules:\n\n1. Automate the repeatable part.\n2. Keep the decision-making part human.\n3. Make the next action impossible to miss.\n\nFor example, "+automationAngle(a,c)+"\n\nAnd because you told us your response time is "+a.response.toLowerCase()+" and typical follow-up is "+a.followups+", I’d design the workflow around those realities rather than dropping a generic “AI follow-up” system into the brokerage.\n\nThe point is a sales system that works with your agents — not one that creates more noise for them.\n\nIf you want to see exactly what that could look like for "+company+", book the Automation Breakdown:\nhttps://gm.grovmedia.com/widget/bookings/grov-automation-breakdown\n\nI’ll come prepared with the audit numbers you already submitted.\n\n— Mokshita\nGrov Systems"
+    subject:"What happens after an enquiry arrives at "+company+"?",
+    body:"Hi "+first+",\n\nOne thing I'd look at before recommending more lead generation for "+company+": what happens immediately after an enquiry arrives?\n\nHow quickly is it answered?\nHow is it qualified?\nHow many times is it followed up?\nAnd what moves it to the next stage?\n\nThose handoffs are often where the sales process becomes inconsistent.\n\nThe Real Estate Revenue Leak Audit gives you a simple way to see which stage deserves attention first using your own numbers.\n\nRun it here:\n"+auditUrl+"\n\n— Mokshita\nGrov Systems"
   };
 
   const e4={
-    subject:company+": what I’d want to map before building anything",
-    body:"Hi "+first+",\n\nBefore building a single automation for "+company+", I’d want to map four things:\n\n1. Where enquiries enter the business.\n2. Where they are qualified.\n3. Where an agent takes over.\n4. What happens when the prospect doesn’t move forward immediately.\n\nYour audit gives us the first layer.\n\nThe Automation Breakdown is where we connect that to the actual operating system:\n\nCRM → WhatsApp → agent → follow-up → viewing / offer → next action.\n\nThat matters because the biggest opportunity in your audit isn’t necessarily solved by one automation.\n\nIt’s usually the handoffs between stages.\n\nA lead can be answered quickly and still be poorly qualified.\n\nA qualified buyer can still fail to book a viewing.\n\nA viewing can happen and still receive weak follow-up.\n\nAn offer can exist and still have no clear next action.\n\nThat’s the part I’d want to diagnose with you.\n\nIf you’d like to map it, choose a time here:\nhttps://gm.grovmedia.com/widget/bookings/grov-automation-breakdown\n\n— Mokshita\nGrov Systems"
+    subject:"I found the question I'd ask about "+company+"'s sales process",
+    body:"Hi "+first+",\n\nIf I were mapping "+company+"'s sales process, I'd start with one question:\n\n“Where are enquiries dropping out before they become transactions?”\n\nThen I'd map:\n\nEnquiry → Qualification → Viewing → Offer → Transaction\n\nThe point isn't to assume there is a problem. It's to quantify where the biggest modeled opportunity appears before deciding what, if anything, should be changed.\n\nThat's what the Revenue Leak Audit is built to do.\n\nYou can run it here:\n"+auditUrl+"\n\nNo CRM access required.\n\n— Mokshita\nGrov Systems"
   };
 
   const e5={
-    subject:"Should I close the loop on your "+company+" audit?",
-    body:"Hi "+first+",\n\nI wanted to close the loop on the Revenue Audit you completed for "+company+".\n\nYour numbers pointed most strongly toward:\n\n"+p.label+"\n\nThe audit modeled "+opp+" in additional annual commission if that stage improved from "+p.current+"% to "+p.scenario+"%.\n\nAgain, that’s a scenario — not a promise.\n\nThe useful part is knowing where I’d look first.\n\nIf improving that stage is already on your list, we can map the actual workflow and tell you what we’d automate, what should stay with your agents, and what the implementation would require.\n\nThat’s the Automation Breakdown:\nhttps://gm.grovmedia.com/widget/bookings/grov-automation-breakdown\n\nIf it isn’t a priority right now, no problem — I’ll close the loop here.\n\n— Mokshita\nGrov Systems"
+    subject:"Should I close the loop on your Revenue Leak Audit?",
+    body:"Hi "+first+",\n\nClosing the loop on this.\n\nIf you're curious where "+company+"'s biggest modeled revenue leak appears, the audit takes about 2 minutes and uses your own funnel numbers.\n\n"+funnel+"\n\nYou'll see:\n• the current funnel implied by your numbers\n• the stage with the largest modeled revenue opportunity\n• the illustrative annual commission impact\n• and what we'd investigate first\n\nRun it here:\n"+auditUrl+"\n\nIf the numbers point to a meaningful opportunity, the next step is the Automation Breakdown — where we'd map that stage to your CRM, WhatsApp and sales workflow.\n\n— Mokshita\nGrov Systems"
   };
 
   return [e1,e2,e3,e4,e5];
-}
-
-export async function onRequestPost({request,env}) {
-  try {
-    const a=await request.json();
-    if(!a.email||!a.company||!a.firstName) return json({ok:false,error:"Missing required audit identity fields."},400);
-    const c=calculate(a), emails=buildEmails(a,c), auditId=crypto.randomUUID();
-
-    const payload={
-      event:"real_estate_revenue_audit_completed",
-      audit_id:auditId,
-      tag:"Dubai Real Estate Audit Completed",
-      first_name:a.firstName,email:a.email,company:a.company,role:a.role,
-      enquiries:Number(a.enquiries),qualification_percent:Number(a.qualified),
-      viewing_percent:Number(a.viewing),offer_percent:Number(a.offer),
-      transaction_percent:Number(a.transaction),average_commission_aed:Number(a.commission),
-      response_speed:a.response,follow_up_frequency:a.followups,
-      monthly_transactions:c.t,current_annual_commission_aed:c.annual,
-      primary_opportunity_stage:c.primary.label,
-      primary_current_conversion:c.primary.current,
-      primary_scenario_conversion:c.primary.scenario,
-      primary_annual_opportunity_aed:c.primary.annualOpportunity,
-      email_1_subject:emails[0].subject,email_1_body:emails[0].body,
-      email_2_subject:emails[1].subject,email_2_body:emails[1].body,
-      email_3_subject:emails[2].subject,email_3_body:emails[2].body,
-      email_4_subject:emails[3].subject,email_4_body:emails[3].body,
-      email_5_subject:emails[4].subject,email_5_body:emails[4].body,
-      booking_url:"https://gm.grovmedia.com/widget/bookings/grov-automation-breakdown"
-    };
-
-    let ghl={sent:false};
-    const ghlWebhookUrl = "https://services.leadconnectorhq.com/hooks/61oKsJYxy08f8yYuAF7i/webhook-trigger/71ae9848-255f-49b4-909c-2dc7e54f342c";
-    if(ghlWebhookUrl){
-      const r=await fetch(ghlWebhookUrl,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
-      ghl={sent:r.ok,status:r.status};
-    }
-    return json({ok:true,audit_id:auditId,primary:c.primary,emails:emails,ghl:ghl});
-  } catch(error) {
-    return json({ok:false,error:"Unable to process audit."},500);
-  }
 }
