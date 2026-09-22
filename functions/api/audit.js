@@ -120,8 +120,9 @@ export async function onRequestPost({request,env}) {
     };
 
     let ghl={sent:false};
-    if(env.GHL_INBOUND_WEBHOOK_URL){
-      const r=await fetch(env.GHL_INBOUND_WEBHOOK_URL,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
+    const ghlWebhookUrl = "https://services.leadconnectorhq.com/hooks/61oKsJYxy08f8yYuAF7i/webhook-trigger/71ae9848-255f-49b4-909c-2dc7e54f342c";
+    if(ghlWebhookUrl){
+      const r=await fetch(ghlWebhookUrl,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
       ghl={sent:r.ok,status:r.status};
     }
     return json({ok:true,audit_id:auditId,primary:c.primary,emails:emails,ghl:ghl});
