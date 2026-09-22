@@ -55,7 +55,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
 .suffix-wrap{position:relative}
 .suffix-wrap span{position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);pointer-events:none}
 .suffix-wrap input{padding-right:48px}
-.help{font-size:11px;color:var(--muted);margin-top:6px}
+.help{font-size:11px;line-height:1.45;color:var(--muted);margin:-2px 0 8px}
 .error{display:none;color:var(--red);font-size:12px;margin-top:6px}
 .field.invalid input,.field.invalid select{border-color:var(--red)}
 .field.invalid .error{display:block}
@@ -193,7 +193,8 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
               <div class="error">Enter a number greater than 0.</div>
             </div>
             <div class="field" data-field="commission">
-              <label for="commission">Average commission your brokerage earns per completed transaction<span class="help">Approximate amount your company earns when a transaction closes — not the property's sale price.</span></label>
+              <label for="commission">Average commission your brokerage earns per completed transaction</label>
+              <div class="help">Approximate amount your company earns when a transaction closes — not the property's sale price.</div>
               <div class="input-wrap"><span>AED</span><input id="commission" name="commission" type="number" min="1" step="100" inputmode="decimal" placeholder="e.g. 25,000"></div>
               <div class="error">Enter an average commission greater than 0.</div>
             </div>
@@ -385,7 +386,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
     const lowFollow = ["0–1","2–3","Not sure"].includes(data.followups);
     const strongFollow = ["4–5","6+"].includes(data.followups);
     const volume = Math.round(data.enquiries).toLocaleString();
-    const stageVolumeText = Math.round(stageVolume(data,p.key,calc)).toLocaleString();
+    const stageVolumeText = Math.round(stageVolume(calc,p.key)).toLocaleString();
 
     let first = "";
     if(p.key==="qualified"){
@@ -494,7 +495,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
             <div class="mini"><span>Illustrative scenario</span><strong>${p.scenario}%</strong></div>
             <div class="mini"><span>Annual opportunity</span><strong>${money(p.annualOpportunity)}</strong></div>
           </div>
-          <p>You currently generate around <b>${Math.round(stageVolume(data, p.key, c)).toLocaleString()}</b> ${stageUnit(p.key)} per month, with <b>${p.current}%</b> converting at this stage. Based on the scenario used in this audit, improving this stage to <b>${p.scenario}%</b> could create an estimated <b>${money(p.annualOpportunity)}</b> in additional annual commission.</p><p style="margin-top:9px">This does not mean that amount is currently being lost.</p>
+          <p>You currently generate around <b>${Math.round(stageVolume(c, p.key)).toLocaleString()}</b> ${stageUnit(p.key)} per month, with <b>${p.current}%</b> converting at this stage. Based on the scenario used in this audit, improving this stage to <b>${p.scenario}%</b> could create an estimated <b>${money(p.annualOpportunity)}</b> in additional annual commission.</p><p style="margin-top:9px">This does not mean that amount is currently being lost.</p>
         </div>
       </div>
 
