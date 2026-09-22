@@ -244,7 +244,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
               <div class="error">Please select an answer.</div>
             </div>
           </div>
-          <div class="navrow"><button class="back" type="button">← Back</button><button class="primary" id="calculateBtn" type="button">Show My Real Estate Revenue →</button></div>
+          <div class="navrow"><button class="back" type="button">← Back</button><button class="primary" id="calculateBtn" type="button">See My Revenue Opportunity →</button></div>
           <div class="step-note">Your results are estimates based on the information you provide.</div>
         </div>
       </form>
@@ -334,7 +334,16 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
   }
 
   function money(n){
-    return "AED " + Math.round(Number(n)||0).toLocaleString("en-US");
+    const value = Math.max(0, Number(n)||0);
+    if(value >= 1000000) return "AED " + (value/1000000).toFixed(value >= 10000000 ? 0 : 1).replace(/\\.0$/,"") + "M";
+    if(value >= 1000) return "AED " + Math.round(value/1000).toLocaleString("en-US") + "K";
+    return "AED " + Math.round(value).toLocaleString("en-US");
+  }
+  function volume(n){
+    const value = Number(n)||0;
+    if(value === 0) return "0";
+    if(Math.abs(value-Math.round(value)) < 0.01) return Math.round(value).toLocaleString("en-US");
+    return value.toFixed(1).replace(/\\.0$/,"");
   }
   function pct(n){ return Math.max(0,Math.min(100,Number(n)||0)); }
 
