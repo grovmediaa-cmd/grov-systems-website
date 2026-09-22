@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grov Real Estate Revenue Audit — Dubai Real Estate</title>
+<meta name="description" content="A 2-minute revenue audit built for Dubai real estate brokerages.">
+<style>
+:root{
+  --navy:#0b1f3a; --navy-2:#102b4d; --gold:#c9a24a; --gold-light:#f7f0df;
+  --ink:#172033; --muted:#667085; --line:#e5e8ee; --bg:#f6f7f9; --white:#fff;
+  --green:#28745a; --red:#b54747; --shadow:0 20px 70px rgba(11,31,58,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.shell{width:min(980px,calc(100% - 32px));margin:auto;padding:26px 0 70px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:76px}
+.logo{font-size:13px;font-weight:850;letter-spacing:.18em;color:var(--gold)}
+.edition{font-size:12px;color:var(--muted)}
+.hero{text-align:center;padding-bottom:66px}
+.eyebrow{font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(40px,7vw,68px);line-height:.99;letter-spacing:-.055em;color:var(--navy);max-width:800px;margin:18px auto 20px}
+.hero-copy{font-size:18px;line-height:1.65;color:var(--muted);max-width:680px;margin:0 auto 28px}
+.primary{border:0;border-radius:11px;background:var(--navy);color:#fff;padding:16px 23px;font-weight:800;box-shadow:0 10px 28px rgba(11,31,58,.16);transition:.18s}
+.primary:hover{transform:translateY(-1px);background:var(--navy-2)}
+.primary.gold{background:var(--gold);color:var(--navy);box-shadow:none}
+.micro{font-size:12px;color:var(--muted);margin-top:11px}
+.what{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:54px;text-align:left}
+.what-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.what-card .num{color:var(--gold);font-size:11px;font-weight:850}
+.what-card h3{font-size:16px;color:var(--navy);margin:9px 0 6px}
+.what-card p{font-size:13px;line-height:1.55;color:var(--muted);margin:0}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.audit-panel{padding:32px}
+.progress-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12px;color:var(--muted)}
+.progress{height:5px;background:#eef1f5;border-radius:99px;overflow:hidden}
+.progress-bar{height:100%;width:33.333%;background:var(--gold);transition:width .25s ease}
+.step{display:none;padding-top:30px}
+.step.active{display:block}
+.step-title{font-size:31px;line-height:1.12;letter-spacing:-.035em;color:var(--navy);margin:0 0 7px}
+.step-sub{font-size:14px;color:var(--muted);line-height:1.55;margin:0 0 26px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:4px}
+.field.full{grid-column:1/-1}
+label{display:block;font-size:13px;font-weight:750;color:var(--ink);margin:0 0 8px}
+input,select{width:100%;height:52px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);padding:0 15px;outline:none}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,74,.12)}
+.input-wrap{position:relative}
+.input-wrap span{position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--muted)}
+.input-wrap input{padding-left:52px}
+.suffix-wrap{position:relative}
+.suffix-wrap span{position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);pointer-events:none}
+.suffix-wrap input{padding-right:48px}
+.help{font-size:11px;color:var(--muted);margin-top:6px}
+.error{display:none;color:var(--red);font-size:12px;margin-top:6px}
+.field.invalid input,.field.invalid select{border-color:var(--red)}
+.field.invalid .error{display:block}
+.navrow{display:flex;justify-content:space-between;align-items:center;margin-top:28px}
+.back{border:0;background:transparent;color:var(--muted);padding:12px 0}
+.back:disabled{visibility:hidden}
+.step-note{font-size:11px;color:var(--muted)}
+
+.result{padding:34px}
+.result-top{text-align:center;padding:10px 0 28px}
+.result-top h2{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 13px}
+.result-company{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px}.big-money{font-size:clamp(38px,7vw,60px);font-weight:900;letter-spacing:-.05em;color:var(--navy)}
+.result-label{font-size:13px;color:var(--muted);margin-top:5px}
+.current-annual{font-size:13px;color:var(--muted);margin-top:14px}.current-annual strong{color:var(--navy)}
+.note{font-size:11px;color:var(--muted);max-width:650px;margin:12px auto 0;line-height:1.55}
+
+.section{border-top:1px solid var(--line);padding-top:25px;margin-top:25px}
+.section h3{font-size:19px;color:var(--navy);margin:0 0 8px}
+.section-intro{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 16px}
+.funnel{display:grid;gap:8px}
+.funnel-row{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center;padding:14px 16px;background:#f8f9fb;border:1px solid var(--line);border-radius:11px}
+.funnel-row strong{font-size:13px;color:var(--navy)}
+.funnel-row .value{font-size:17px;font-weight:850;color:var(--navy)}
+.funnel-row small{font-size:11px;color:var(--muted);min-width:70px;text-align:right}
+
+.opportunity{background:var(--gold-light);border:1px solid #e8dcc1;border-radius:16px;padding:22px}
+.opportunity-tag{font-size:10px;font-weight:850;letter-spacing:.12em;color:#775914}
+.opportunity h3{font-size:25px;color:var(--navy);margin:7px 0 12px}
+.opportunity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}
+.mini{background:rgba(255,255,255,.7);border:1px solid #e9dec7;border-radius:11px;padding:13px}
+.mini span{display:block;font-size:10px;color:var(--muted);margin-bottom:4px}
+.mini strong{font-size:18px;color:var(--navy)}
+.opportunity p{font-size:13px;line-height:1.6;color:#4f5663;margin:0}
+
+.insight{font-size:14px;line-height:1.65;color:#4f5663;margin:0}
+.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.scenario{border:1px solid var(--line);border-radius:13px;padding:17px}
+.scenario .tag{font-size:10px;letter-spacing:.1em;font-weight:850;color:var(--gold)}
+.scenario h4{font-size:15px;color:var(--navy);margin:7px 0}
+.scenario strong{font-size:20px;color:var(--navy)}
+.scenario p{font-size:11px;line-height:1.5;color:var(--muted);margin:7px 0 0}
+
+.recs{display:grid;gap:9px}
+.rec{display:grid;grid-template-columns:34px 1fr;gap:10px;border:1px solid var(--line);border-radius:13px;padding:15px}
+.rec-no{font-size:12px;font-weight:900;color:var(--gold)}
+.rec strong{font-size:14px;color:var(--navy)}
+.rec p{font-size:12px;line-height:1.5;color:var(--muted);margin:4px 0 0}
+
+.cta{margin-top:28px;background:var(--navy);border-radius:17px;padding:25px;color:#fff}
+.cta h3{font-size:24px;margin:0 0 7px}
+.cta p{font-size:13px;line-height:1.6;color:#d8e0eb;margin:0 0 16px}
+.secondary{border:0;background:transparent;color:#d8e0eb;text-decoration:underline;font-size:12px;margin-top:12px;padding:5px}
+.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:17px}
+
+.hidden{display:none!important}
+@media(max-width:700px){
+  .shell{width:min(100% - 22px,980px);padding-top:18px}
+  .topbar{margin-bottom:48px}
+  .edition{display:none}
+  .what,.grid,.scenarios,.opportunity-grid{grid-template-columns:1fr}
+  .audit-panel,.result{padding:22px}
+  .step-title{font-size:27px}
+  .funnel-row{grid-template-columns:1fr auto}
+  .funnel-row small{grid-column:1/-1;text-align:left}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="logo">GROV SYSTEMS</div>
+    <div class="edition">Dubai Real Estate Edition</div>
+  </header>
+
+  <main>
+    <section id="landing" class="hero">
+      <div class="eyebrow">Grov Real Estate Revenue Audit™</div>
+      <h1>How much revenue could your sales process be generating?</h1>
+      <p class="hero-copy">A 2-minute revenue audit built for Dubai real estate brokerages. Enter a few numbers from your current sales process and we'll estimate where additional revenue may be available across enquiries, viewings and transactions.</p>
+      <button class="primary" id="startBtn" type="button">Run My Revenue Audit →</button>
+      <div class="micro">Takes about 2 minutes. No CRM access required.</div>
+
+      <div class="what">
+        <div class="what-card"><div class="num">01</div><h3>Your current numbers</h3><p>A simple view of the numbers you entered.</p></div>
+        <div class="what-card"><div class="num">02</div><h3>Revenue opportunity</h3><p>An estimate based on your current enquiry, viewing and transaction funnel.</p></div>
+        <div class="what-card"><div class="num">03</div><h3>Where we'd automate</h3><p>A short explanation of which parts of the process could potentially be automated.</p></div>
+      </div>
+    </section>
+
+    <section id="audit" class="panel audit-panel hidden" aria-live="polite">
+      <div class="progress-head"><span id="stepLabel">Step 1 of 3</span><span id="progressPct">33%</span></div>
+      <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+
+      <form id="auditForm" novalidate>
+        <div class="step active" data-step="0">
+          <h2 class="step-title">Tell us about your brokerage</h2>
+          <p class="step-sub">We'll use this to personalize your report.</p>
+          <div class="grid">
+            <div class="field full" data-field="company">
+              <label for="company">Brokerage / Company Name</label>
+              <input id="company" name="company" autocomplete="organization" placeholder="e.g. ABC Properties">
+              <div class="error">Please enter your company name.</div>
+            </div>
+            <div class="field" data-field="firstName">
+              <label for="firstName">First Name</label>
+              <input id="firstName" name="firstName" autocomplete="given-name" placeholder="First name">
+              <div class="error">Please enter your name.</div>
+            </div>
+            <div class="field" data-field="email">
+              <label for="email">Work Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="name@company.com">
+              <div class="error">Please enter a valid business email.</div>
+            </div>
+            <div class="field full" data-field="role">
+              <label for="role">Your Role</label>
+              <select id="role" name="role">
+                <option value="">Select your role</option>
+                <option>Founder</option><option>Owner</option><option>CEO</option>
+                <option>Managing Director</option><option>Director of Sales</option>
+                <option>Head of Sales</option><option>Sales Manager</option><option>Other</option>
+              </select>
+              <div class="error">Please select your role.</div>
+            </div>
+          </div>
+          <div class="navrow"><button class="back" type="button" disabled>← Back</button><button class="primary next" type="button">Continue →</button></div>
+        </div>
+
+        <div class="step" data-step="1">
+          <h2 class="step-title">Give us a snapshot of your current sales process</h2>
+          <p class="step-sub">Enter a few numbers from your current sales process. Rough figures are fine.</p>
+          <div class="grid">
+            <div class="field" data-field="enquiries">
+              <label for="enquiries">How many new enquiries does your brokerage receive each month?</label>
+              <input id="enquiries" name="enquiries" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 500">
+              <div class="error">Enter a number greater than 0.</div>
+            </div>
+            <div class="field" data-field="commission">
+              <label for="commission">Average commission your brokerage earns per completed transaction<span class="help">Approximate amount your company earns when a transaction closes — not the property's sale price.</span></label>
+              <div class="input-wrap"><span>AED</span><input id="commission" name="commission" type="number" min="1" step="100" inputmode="decimal" placeholder="e.g. 25,000"></div>
+              <div class="error">Enter an average commission greater than 0.</div>
+            </div>
+            <div class="field" data-field="qualified">
+              <label for="qualified">What percentage of enquiries become serious / qualified prospects?</label>
+              <div class="suffix-wrap"><input id="qualified" name="qualified" type="number" min="0" max="100" step="1" inputmode="decimal" placeholder="e.g. 15"><span>%</span></div>
+              <div class="error">Use a percentage from 0–100.</div>
+            </div>
+            <div class="field" data-field="viewing">
+              <label for="viewing">What percentage of serious prospects go on to view a property?</label>
+              <div class="suffix-wrap"><input id="viewing" name="viewing" type="number" min="0" max="100" step="1" inputmode="decimal" placeholder="e.g. 40"><span>%</span></div>
+              <div class="error">Use a percentage from 0–100.</div>
+            </div>
+            <div class="field" data-field="offer">
+              <label for="offer">What percentage of property viewings result in an offer?</label>
+              <div class="suffix-wrap"><input id="offer" name="offer" type="number" min="0" max="100" step="1" inputmode="decimal" placeholder="e.g. 25"><span>%</span></div>
+              <div class="error">Use a percentage from 0–100.</div>
+            </div>
+            <div class="field" data-field="transaction">
+              <label for="transaction">What percentage of offers become completed transactions?</label>
+              <div class="suffix-wrap"><input id="transaction" name="transaction" type="number" min="0" max="100" step="1" inputmode="decimal" placeholder="e.g. 30"><span>%</span></div>
+              <div class="error">Use a percentage from 0–100.</div>
+            </div>
+          </div>
+          <div class="navrow"><button class="back" type="button">← Back</button><button class="primary next" type="button">Continue →</button></div>
+        </div>
+
+        <div class="step" data-step="2">
+          <h2 class="step-title">Two quick process questions.</h2>
+          <p class="step-sub">These help us identify where automation may have the most practical impact.</p>
+          <div class="grid">
+            <div class="field" data-field="response">
+              <label for="response">How quickly does your team typically respond to a new enquiry?</label>
+              <select id="response" name="response">
+                <option value="">Select one</option><option>Under 5 minutes</option><option>5–30 minutes</option>
+                <option>30–60 minutes</option><option>1–4 hours</option><option>Same day</option>
+                <option>Next day or later</option><option>Not sure</option>
+              </select>
+              <div class="error">Please select an answer.</div>
+            </div>
+            <div class="field" data-field="followups">
+              <label for="followups">How many times does your team typically follow up with a prospect?</label>
+              <select id="followups" name="followups">
+                <option value="">Select one</option><option>0–1</option><option>2–3</option>
+                <option>4–5</option><option>6+</option><option>Not sure</option>
+              </select>
+              <div class="error">Please select an answer.</div>
+            </div>
+          </div>
+          <div class="navrow"><button class="back" type="button">← Back</button><button class="primary" id="calculateBtn" type="button">Show My Real Estate Revenue →</button></div>
+          <div class="step-note">Your results are estimates based on the information you provide.</div>
+        </div>
+      </form>
+    </section>
+
+    <section id="result" class="panel result hidden" aria-live="polite"></section>
+  </main>
+
+  <div class="footer">Estimates are illustrative and based on information you provide. They are not guaranteed revenue.</div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  // Production configuration: change these values without changing the audit UI.
+  const CONFIG = {
+    bookingUrl: "https://gm.grovmedia.com/widget/bookings/grov-automation-breakdown",
+    scenario: {
+      qualification: 4, // percentage-point illustrative improvement
+      viewing: 10,
+      offer: 8,
+      transaction: 7
+    }
+  };
+
+  const data = {
+    company:"", firstName:"", email:"", role:"",
+    enquiries:null, qualified:null, viewing:null, offer:null, transaction:null,
+    commission:null, response:"", followups:""
+  };
+
+  const landing = document.getElementById("landing");
+  const audit = document.getElementById("audit");
+  const result = document.getElementById("result");
+  const steps = [...document.querySelectorAll(".step")];
+  let current = 0;
+
+  function showStep(index){
+    current = index;
+    steps.forEach((s,i)=>s.classList.toggle("active",i===index));
+    const pct = Math.round(((index+1)/steps.length)*100);
+    document.getElementById("stepLabel").textContent = `Step ${index+1} of ${steps.length}`;
+    document.getElementById("progressPct").textContent = `${pct}%`;
+    document.getElementById("progressBar").style.width = `${pct}%`;
+    window.scrollTo({top:audit.offsetTop-18,behavior:"smooth"});
+  }
+
+  function clearErrors(step){
+    step.querySelectorAll(".field").forEach(f=>f.classList.remove("invalid"));
+  }
+
+  function validEmail(value){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  function validateStep(index){
+    const step = steps[index];
+    clearErrors(step);
+    let ok = true;
+    const required = {
+      0: ["company","firstName","email","role"],
+      1: ["enquiries","commission","qualified","viewing","offer","transaction"],
+      2: ["response","followups"]
+    }[index];
+
+    required.forEach(key => {
+      const el = document.getElementById(key);
+      const field = step.querySelector(`[data-field="${key}"]`);
+      const raw = el.value.trim();
+      let valid = raw !== "";
+      if(["enquiries","commission"].includes(key)) valid = valid && Number(raw) > 0;
+      if(["qualified","viewing","offer","transaction"].includes(key)) valid = valid && Number(raw) >= 0 && Number(raw) <= 100;
+      if(key==="email") valid = valid && validEmail(raw);
+      if(!valid){ field.classList.add("invalid"); ok=false; }
+      else data[key] = (el.type==="number") ? Number(raw) : raw;
+    });
+    if(!ok){
+      const firstInvalid = step.querySelector(".field.invalid input,.field.invalid select");
+      if(firstInvalid) firstInvalid.focus();
+    }
+    return ok;
+  }
+
+  function escapeHtml(value){
+    return String(value ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function money(n){
+    return "AED " + Math.round(Number(n)||0).toLocaleString("en-US");
+  }
+  function pct(n){ return Math.max(0,Math.min(100,Number(n)||0)); }
+
+  function calculate(){
+    const e = data.enquiries;
+    const q = e * pct(data.qualified)/100;
+    const v = q * pct(data.viewing)/100;
+    const o = v * pct(data.offer)/100;
+    const t = o * pct(data.transaction)/100;
+    const monthly = t * data.commission;
+    const annual = monthly * 12;
+
+    const stages = [
+      {key:"qualified",label:"Enquiry → Qualified Conversation",current:data.qualified,delta:CONFIG.scenario.qualification},
+      {key:"viewing",label:"Qualified → Viewing",current:data.viewing,delta:CONFIG.scenario.viewing},
+      {key:"offer",label:"Property viewing → Offer",current:data.offer,delta:CONFIG.scenario.offer},
+      {key:"transaction",label:"Offer → Completed transaction",current:data.transaction,delta:CONFIG.scenario.transaction}
+    ];
+
+    const opportunities = stages.map(stage => {
+      const rates = [data.qualified,data.viewing,data.offer,data.transaction].map(Number);
+      const idx = ["qualified","viewing","offer","transaction"].indexOf(stage.key);
+      rates[idx] = Math.min(100, rates[idx] + stage.delta);
+      const improvedCompletedTransactions = e * rates.reduce((acc,r)=>acc*(pct(r)/100),1);
+      const annualOpportunity = Math.max(0,(improvedCompletedTransactions-t)*data.commission*12);
+      return {...stage, scenario:Math.min(100,stage.current+stage.delta), improvedCompletedTransactions, annualOpportunity};
+    }).sort((a,b)=>b.annualOpportunity-a.annualOpportunity);
+
+    return {q,v,o,t,monthly,annual,opportunities,primary:opportunities[0]};
+  }
+
+  function stageVolume(calc, key){
+    if(key==="qualified") return data.enquiries;
+    if(key==="viewing") return calc.q;
+    if(key==="offer") return calc.v;
+    return calc.o;
+  }
+  function stageUnit(key){
+    if(key==="qualified") return "enquiries";
+    if(key==="viewing") return "serious / qualified prospects";
+    if(key==="offer") return "property viewings";
+    return "offers";
+  }
+
+  function buildInsight(calc){
+    const p = calc.primary;
+    const slowResponse = ["30–60 minutes","1–4 hours","Same day","Next day or later","Not sure"].includes(data.response);
+    const strongResponse = ["Under 5 minutes","5–30 minutes"].includes(data.response);
+    const lowFollow = ["0–1","2–3","Not sure"].includes(data.followups);
+    const strongFollow = ["4–5","6+"].includes(data.followups);
+    const volume = Math.round(data.enquiries).toLocaleString();
+    const stageVolumeText = Math.round(stageVolume(data,p.key,calc)).toLocaleString();
+
+    let first = "";
+    if(p.key==="qualified"){
+      first = `You’re generating around <b>${volume} enquiries per month</b>, and the largest modeled opportunity appears between enquiries and serious / qualified prospects. Your current enquiry-to-qualified conversion is <b>${p.current}%</b>, making this the first stage we'd investigate.`;
+    } else if(p.key==="viewing"){
+      first = `You’re generating around <b>${Math.round(calc.q).toLocaleString()} serious / qualified prospects per month</b>, but the largest modeled opportunity appears between serious / qualified prospects and property viewings. Your current conversion at this stage is <b>${p.current}%</b>.`;
+    } else if(p.key==="offer"){
+      first = `You’re currently modeling around <b>${stageVolumeText} offers per month</b>, and your viewing-to-offer conversion is <b>${p.current}%</b>. The largest modeled opportunity appears between property viewings and offers.`;
+    } else {
+      first = `You’re currently modeling around <b>${stageVolumeText} offers per month</b>, with <b>${p.current}%</b> converting into transactions. That offer-to-transaction stage is the largest modeled opportunity in your answers.`;
+    }
+
+    let second = "";
+    if(slowResponse){
+      second = `You indicated that new enquiries typically receive a response in <b>${data.response.toLowerCase()}</b>. That suggests a separate workflow opportunity around getting the right response and qualification step in front of new enquiries quickly.`;
+    } else if(strongResponse){
+      second = `You indicated a <b>${data.response.toLowerCase()}</b> response time, so we'd prioritize the later-stage conversion opportunity rather than simply adding more initial-response automation.`;
+    }
+
+    let third = "";
+    if(lowFollow){
+      third = `You also indicated <b>${data.followups.toLowerCase()} follow-ups</b> are typical. Consistent, stage-based follow-up could be another useful workflow to test.`;
+    } else if(strongFollow){
+      third = `Your stated follow-up volume is already relatively consistent at <b>${data.followups.toLowerCase()}</b>. The larger opportunity appears to be how those follow-ups are triggered, prioritized and connected to the stage of the deal—not simply doing more follow-up.`;
+    }
+
+    const closing = p.key==="qualified"
+      ? `Based on your numbers, the larger modeled opportunity is at the front of the funnel, so we'd focus on response, qualification and routing first.`
+      : `Based on your numbers, the larger modeled opportunity comes from conversion at the identified stage rather than simply adding more follow-ups.`;
+
+    return [first,second,third,closing].filter(Boolean).join("<br><br>");
+  }
+
+  function recommendations(key){
+    const map = {
+      qualified:[
+        ["Instant enquiry response","Respond automatically when a lead arrives through WhatsApp, website forms or email."],
+        ["AI qualification","Ask predefined questions and identify serious prospects before an agent steps in."],
+        ["Lead routing","Route qualified opportunities to the right agent with the conversation context attached."],
+        ["Follow-up","Automatically follow up when a prospect does not respond."],
+        ["Human handoff","Move qualified opportunities to an agent at the right moment."]
+      ],
+      viewing:[
+        ["Qualification-to-viewing workflow","Move qualified prospects directly toward the right property and a booked viewing."],
+        ["Property matching","Collect requirements and guide qualified buyers toward relevant properties."],
+        ["Viewing availability","Offer relevant viewing slots without waiting for back-and-forth."],
+        ["WhatsApp prompts","Keep prospects moving with timely booking and confirmation messages."],
+        ["Agent handoff","Give the agent the qualification and property context before the viewing."]
+      ],
+      offer:[
+        ["Post-viewing follow-up","Trigger structured follow-up after every viewing."],
+        ["Buyer feedback capture","Collect feedback after the viewing so the team knows what happened next."],
+        ["Objection capture","Capture the reason for hesitation and route it to the agent."],
+        ["Property re-matching","Suggest relevant alternatives when the first property is not a fit."],
+        ["Agent next action","Surface the next best action for the responsible agent."]
+      ],
+      transaction:[
+        ["Offer-stage follow-up","When an offer is created, trigger the appropriate follow-up sequence automatically."],
+        ["Deal activity monitoring","Monitor active opportunities for the next required action and alert the responsible agent."],
+        ["Agent prioritization","Surface the opportunities that need human attention first."],
+        ["Automated reminders","Handle repeatable communication and internal reminders according to the workflow."],
+        ["Human handoff","When negotiation or another sensitive conversation requires an agent, route it to the appropriate person."]
+      ]
+    };
+    return map[key];
+  }
+
+  function renderResult(){
+    const c = calculate(), p = c.primary;
+    const recs = recommendations(p.key);
+    const responseNote = data.response === "Under 5 minutes"
+      ? "Your stated response speed is already under 5 minutes, so the modeled opportunity is driven more by the conversion stages than response delay."
+      : "Your response speed suggests there may be room to reduce the time between enquiry and first meaningful contact.";
+    const followNote = data.followups === "6+" || data.followups === "4–5"
+      ? "Your stated follow-up volume is relatively consistent; the larger modeled opportunity comes from conversion rather than simply adding more follow-ups."
+      : "Your stated follow-up volume leaves room to test a more consistent automated sequence.";
+
+    result.innerHTML = `
+      <div class="result-top">
+        <h2>Your Real Estate Revenue</h2>
+        <div class="result-company">${escapeHtml(data.company)}</div>
+        <div class="big-money">${money(p.annualOpportunity)}</div>
+        <div class="result-label">Illustrative annual commission opportunity based on the stage with the largest modeled improvement.</div>
+        <div class="current-annual">Current estimated annual commission: <strong>${money(c.annual)}</strong></div>
+        <p class="note">This is an estimate, not guaranteed revenue. The opportunity scenarios below are illustrative and use configurable assumptions.</p>
+      </div>
+
+      <div class="section">
+        <h3>Your current funnel</h3>
+        <p class="section-intro">A simple view of the numbers you entered and the modeled monthly flow.</p>
+        <div class="funnel">
+          <div class="funnel-row"><strong>New enquiries</strong><span class="value">${Math.round(data.enquiries).toLocaleString()}</span><small>per month</small></div>
+          <div class="funnel-row"><strong>Serious / qualified prospects</strong><span class="value">${Math.round(c.q).toLocaleString()}</span><small>${data.qualified}% conversion</small></div>
+          <div class="funnel-row"><strong>Property viewings</strong><span class="value">${Math.round(c.v).toLocaleString()}</span><small>${data.viewing}% conversion</small></div>
+          <div class="funnel-row"><strong>Offers</strong><span class="value">${Math.round(c.o).toLocaleString()}</span><small>${data.offer}% conversion</small></div>
+          <div class="funnel-row"><strong>Completed transactions</strong><span class="value">${Math.round(c.t).toLocaleString()}</span><small>${data.transaction}% conversion</small></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="opportunity">
+          <div class="opportunity-tag">WHERE THE BIGGEST OPPORTUNITY APPEARS</div>
+          <h3>${p.label}</h3>
+          <div class="opportunity-grid">
+            <div class="mini"><span>Current conversion</span><strong>${p.current}%</strong></div>
+            <div class="mini"><span>Illustrative scenario</span><strong>${p.scenario}%</strong></div>
+            <div class="mini"><span>Annual opportunity</span><strong>${money(p.annualOpportunity)}</strong></div>
+          </div>
+          <p>You currently generate around <b>${Math.round(stageVolume(data, p.key, c)).toLocaleString()}</b> ${stageUnit(p.key)} per month, with <b>${p.current}%</b> converting at this stage. Based on the scenario used in this audit, improving this stage to <b>${p.scenario}%</b> could create an estimated <b>${money(p.annualOpportunity)}</b> in additional annual commission.</p><p style="margin-top:9px">This does not mean that amount is currently being lost.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>What stood out</h3>
+        <p class="insight">${buildInsight(c)}</p>
+        <p class="insight" style="margin-top:9px">${responseNote} ${followNote}</p>
+      </div>
+
+      <div class="section">
+        <h3>Illustrative scenarios</h3>
+        <p class="section-intro">These are scenario calculations, not Dubai industry benchmarks. Grov can change the assumptions before using this in a live campaign.</p>
+        <div class="scenarios">
+          ${c.opportunities.slice().sort((a,b)=>["qualified","viewing","offer","transaction"].indexOf(a.key)-["qualified","viewing","offer","transaction"].indexOf(b.key)).map((s,i)=>`
+            <div class="scenario">
+              <div class="tag">SCENARIO ${String.fromCharCode(65+i)}</div>
+              <h4>${s.label}</h4>
+              <strong>${money(s.annualOpportunity)}</strong>
+              <p>${s.current}% → ${s.scenario}% conversion in this stage.</p>
+            </div>`).join("")}
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>What we'd automate first</h3>
+        <p class="section-intro">Based on the stage with the largest modeled opportunity and the answers you provided.</p>
+        <div class="recs">
+          ${recs.map((r,i)=>`<div class="rec"><div class="rec-no">0${i+1}</div><div><strong>${r[0]}</strong><p>${r[1]}</p></div></div>`).join("")}
+        </div>
+      </div>
+
+      <div class="cta">
+        <h3>Ready to Build This?</h3>
+        <p>You’ve seen where the opportunity appears and what we’d automate first. We’ll map those workflows to your actual CRM, WhatsApp and sales process, then validate the numbers with you before recommending anything.</p>
+        <button class="primary gold" id="breakdownBtn" type="button">Get My Automation Breakdown →</button>
+        <br>
+        <button class="secondary" id="emailBtn" type="button">Not ready? Email me the report</button>
+      </div>
+    `;
+
+    document.getElementById("breakdownBtn").addEventListener("click", () => {
+      if(CONFIG.bookingUrl){
+        window.location.href = CONFIG.bookingUrl;
+      } else {
+        alert("Add your Grov Systems booking/calendar URL in CONFIG.bookingUrl to activate the Automation Breakdown CTA.");
+      }
+    });
+
+    document.getElementById("emailBtn").addEventListener("click", () => {
+      const subject = encodeURIComponent("My Grov Revenue Audit");
+      const body = encodeURIComponent(
+        `Hi Grov Systems,%0D%0A%0D%0AI completed the Real Estate Revenue Audit for ${data.company}.%0D%0A%0D%0AMy primary opportunity: ${p.label}%0D%0AEstimated annual commission: ${money(c.annual)}%0D%0AIllustrative annual opportunity: ${money(p.annualOpportunity)}%0D%0A%0D%0APlease send me my report.`
+      );
+      window.location.href = `mailto:${data.email}?subject=${subject}&body=${body}`;
+    });
+
+    audit.classList.add("hidden");
+    result.classList.remove("hidden");
+    window.scrollTo({top:result.offsetTop-18,behavior:"smooth"});
+  }
+
+  document.getElementById("startBtn").addEventListener("click", () => {
+    landing.classList.add("hidden");
+    audit.classList.remove("hidden");
+    showStep(0);
+  });
+
+  document.querySelectorAll(".next").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(validateStep(current)){
+        if(current < steps.length-1) showStep(current+1);
+      }
+    });
+  });
+
+  document.querySelectorAll(".back").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(current > 0) showStep(current-1);
+      else {
+        audit.classList.add("hidden");
+        landing.classList.remove("hidden");
+        window.scrollTo({top:0,behavior:"smooth"});
+      }
+    });
+  });
+
+  document.getElementById("calculateBtn").addEventListener("click", () => {
+    if(validateStep(2)) renderResult();
+  });
+
+  // Keep data synchronized with inputs and make Enter behave sensibly.
+  document.getElementById("auditForm").addEventListener("input", e => {
+    if(!e.target.id) return;
+    const el=e.target;
+    if(el.type==="number") data[el.id]=el.value===""?null:Number(el.value);
+    else data[el.id]=el.value;
+    const field=el.closest(".field");
+    if(field) field.classList.remove("invalid");
+  });
+
+  document.getElementById("auditForm").addEventListener("change", e => {
+    if(!e.target.id) return;
+    data[e.target.id]=e.target.value;
+    const field=e.target.closest(".field");
+    if(field) field.classList.remove("invalid");
+  });
+})();
+</script>
+</body>
+</html>
