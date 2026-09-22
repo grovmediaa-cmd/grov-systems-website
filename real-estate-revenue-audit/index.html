@@ -582,27 +582,17 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
     });
   });
 
-  document.getElementById("calculateBtn").addEventListener("click", () => {
-    if(validateStep(2)) renderResult();
-  });
-
-  // Keep data synchronized with inputs and make Enter behave sensibly.
-  document.getElementById("auditForm").addEventListener("input", e => {
-    if(!e.target.id) return;
-    const el=e.target;
-    if(el.type==="number") data[el.id]=el.value===""?null:Number(el.value);
-    else data[el.id]=el.value;
-    const field=el.closest(".field");
-    if(field) field.classList.remove("invalid");
-  });
-
-  document.getElementById("auditForm").addEventListener("change", e => {
-    if(!e.target.id) return;
-    data[e.target.id]=e.target.value;
-    const field=e.target.closest(".field");
-    if(field) field.classList.remove("invalid");
-  });
-})();
-</script>
-</body>
-</html>
+  document.getElementById("calculateBtn").addEventListener("click", async () => {
+    if(!validateStep(2)) return;
+    renderResult();
+    try {
+      const response = await fetch("/api/audit", {
+        method: "POST",
+        headers: {"content-type":"application/json"},
+        body: JSON.stringify(data)
+      });
+      if(!response.ok) throw new Error("Audit submission failed");
+    } catch (error) {
+      console.error("Audit submission failed:", error);
+    }
+  });>
