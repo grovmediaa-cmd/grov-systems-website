@@ -566,10 +566,24 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
       if(CONFIG.bookingUrl) window.location.href = CONFIG.bookingUrl;
     });
 
-    document.getElementById("emailBtn").addEventListener("click", () => {
-      const subject = encodeURIComponent("My Grov Revenue Leak Audit");
-      const body = encodeURIComponent(`Hi Grov Systems,\n\nI completed the Real Estate Revenue Leak Audit for ${data.company}.\n\nMy primary opportunity: ${p.label}\nEstimated annual commission: ${money(c.annual)}\nIllustrative annual opportunity: ${money(p.annualOpportunity)}\n\nPlease send me my report.`);
-      window.location.href = `mailto:${data.email}?subject=${subject}&body=${body}`;
+    document.getElementById("emailBtn").addEventListener("click", async () => {
+      const btn = document.getElementById("emailBtn");
+      btn.disabled = true;
+      btn.textContent = "Sending report…";
+      try {
+        const response = await fetch("/api/audit", {
+          method: "POST",
+          headers: {"content-type":"application/json"},
+          body: JSON.stringify({...data, report_requested:true})
+        });
+        if(!response.ok) throw new Error("Report request failed");
+        btn.textContent = "Report requested ✓";
+      } catch (error) {
+        console.error(error);
+        btn.disabled = false;
+        btn.textContent = "Not ready? Email me the leak report";
+        alert("We couldn't send the report right now. Please try again in a moment.");
+      }
     });
 
     audit.classList.add("hidden");
