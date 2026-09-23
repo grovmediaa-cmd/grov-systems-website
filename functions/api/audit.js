@@ -94,3 +94,83 @@ function buildEmails(a,c) {
 
   return [e1,e2,e3,e4,e5];
 }
+
+
+function buildReportEmail(a,c) {
+  const p=c.primary, first=a.firstName||"there", company=a.company||"your brokerage";
+  return [
+    "Hi "+first+",",
+    "",
+    "Here is your Grov Real Estate Revenue Leak Audit for "+company+".",
+    "",
+    "YOUR BIGGEST MODELED REVENUE LEAK",
+    p.label,
+    "",
+    "Current conversion: "+p.current+"%",
+    "Illustrative scenario: "+p.scenario+"%",
+    "Modeled annual opportunity: "+money(p.annualOpportunity),
+    "",
+    "CURRENT FUNNEL",
+    "New enquiries: "+Math.round(Number(a.enquiries)).toLocaleString()+" / month",
+    "Serious / qualified prospects: "+Math.round(c.q).toLocaleString()+" / month ("+a.qualified+"%)",
+    "Property viewings: "+Math.round(c.v).toLocaleString()+" / month ("+a.viewing+"%)",
+    "Offers: "+Math.round(c.o).toLocaleString()+" / month ("+a.offer+"%)",
+    "Completed transactions: "+Math.round(c.t).toLocaleString()+" / month ("+a.transaction+"%)",
+    "",
+    "Current modeled annual commission: "+money(c.annual),
+    "",
+    "RESPONSE & FOLLOW-UP",
+    "Typical response time: "+a.response,
+    "Typical follow-up: "+a.followups,
+    "",
+    "WHAT WE'D INVESTIGATE FIRST",
+    automationAngle(a,c),
+    "",
+    "This is an illustrative scenario based on the numbers you entered. It is not a guarantee or a claim that this amount is currently being lost.",
+    "",
+    "Map the opportunity: https://gm.grovmedia.com/widget/bookings/grov-automation-breakdown",
+    "",
+    "— Mokshita",
+    "Grov Systems"
+  ].join("\n");
+}
+
+export async function onRequestPost({request}) {
+  try {
+    const a=await request.json();
+    if(!a.email||!a.company||!a.firstName) return json({ok:false,error:"Missing required audit identity fields."},400);
+    const c=calculate(a), emails=buildEmails(a,c), auditId=crypto.randomUUID();
+
+    const payload={
+      event:a.report_requested ? "real_estate_revenue_leak_report_requested" : "real_estate_revenue_leak_audit_completed",
+      audit_id:auditId,
+      tag:"Dubai Real Estate Revenue Leak Audit Completed",
+      first_name:a.firstName,email:a.email,company:a.company,role:a.role,
+      enquiries:Number(a.enquiries),qualification_percent:Number(a.qualified),
+      viewing_percent:Number(a.viewing),offer_percent:Number(a.offer),
+      transaction_percent:Number(a.transaction),average_commission_aed:Number(a.commission),
+      response_speed:a.response,follow_up_frequency:a.followups,
+      monthly_transactions:c.t,current_annual_commission_aed:c.annual,
+      primary_opportunity_stage:c.primary.label,
+      primary_current_conversion:c.primary.current,
+      primary_scenario_conversion:c.primary.scenario,
+      primary_annual_opportunity_aed:c.primary.annualOpportunity,
+      email_1_subject:emails[0].subject,email_1_body:emails[0].body,
+      email_2_subject:emails[1].subject,email_2_body:emails[1].body,
+      email_3_subject:emails[2].subject,email_3_body:emails[2].body,
+      email_4_subject:emails[3].subject,email_4_body:emails[3].body,
+      email_5_subject:emails[4].subject,email_5_body:emails[4].body,
+      report_requested:Boolean(a.report_requested),
+      report_email_subject:"Your Grov Real Estate Revenue Leak Audit — "+a.company,
+      report_email_body:buildReportEmail(a,c),
+      audit_url:"https://grovsystems.com/real-estate-revenue-audit/",
+      booking_url:"https://gm.grovmedia.com/widget/bookings/grov-automation-breakdown"
+    };
+
+    const ghlWebhookUrl="https://services.leadconnectorhq.com/hooks/61oKsJYxy08f8yYuAF7i/webhook-trigger/71ae9848-255f-49b4-909c-2dc7e54f342c";
+    const r=await fetch(ghlWebhookUrl,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
+    return json({ok:true,audit_id:auditId,primary:c.primary,emails:emails,ghl:{sent:r.ok,status:r.status}});
+  } catch(error) {
+    return json({ok:false,error:"Unable to process audit."},500);
+  }
+}
