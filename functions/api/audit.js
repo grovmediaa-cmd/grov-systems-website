@@ -167,7 +167,7 @@ export async function onRequestPost({request}) {
       booking_url:"https://gm.grovmedia.com/widget/bookings/grov-automation-breakdown"
     };
 
-    const ghlWebhookUrl="https://services.leadconnectorhq.com/hooks/61oKsJYxy08f8yYuAF7i/webhook-trigger/71ae9848-255f-49b4-909c-2dc7e54f342c";
+    const ghlWebhookUrl="https://services.leadconnectorhq.com/hooks/61oKsJYxy08f8yYuAF7i/webhook-trigger/5125d49f-a5ef-48a1-bddd-7a9c4ae53c5c";
     const r=await fetch(ghlWebhookUrl,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
     return json({ok:true,audit_id:auditId,primary:c.primary,emails:emails,ghl:{sent:r.ok,status:r.status}});
   } catch(error) {
