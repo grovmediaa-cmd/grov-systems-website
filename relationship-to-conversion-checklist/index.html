@@ -76,8 +76,8 @@
 </section>
 </div>
 <script>
-const SUBMIT_URL="/api/checklist-lead";
-document.getElementById("leadForm").addEventListener("submit",async(e)=>{e.preventDefault();const payload={first_name:document.getElementById("firstName").value.trim(),email:document.getElementById("email").value.trim(),priority:document.getElementById("priority").value,source:"Relationship-to-Conversion Checklist",campaign:"relationship-before-reach"};try{const response=await fetch(SUBMIT_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});if(!response.ok)throw new Error("submit failed")}catch(_){alert("We could not submit your details. Please try again.");return}document.getElementById("leadForm").style.display="none";document.getElementById("complete").classList.remove("hidden");["checklist","platforms","positioning","cta"].forEach(id=>document.getElementById(id).classList.remove("hidden"));document.getElementById("checklist").scrollIntoView({behavior:"smooth"})});
+const WEBHOOK_URL="https://services.leadconnectorhq.com/hooks/61oKsJYxy08f8yYuAF7i/webhook-trigger/7df7647b-589c-4d90-9e09-c142d16b370c";
+document.getElementById("leadForm").addEventListener("submit",async(e)=>{e.preventDefault();const payload={first_name:document.getElementById("firstName").value.trim(),email:document.getElementById("email").value.trim(),priority:document.getElementById("priority").value,source:"Relationship-to-Conversion Checklist",campaign:"relationship-before-reach"};try{await fetch(WEBHOOK_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),mode:"no-cors"})}catch(_){}document.getElementById("leadForm").style.display="none";document.getElementById("complete").classList.remove("hidden");["checklist","platforms","positioning","cta"].forEach(id=>document.getElementById(id).classList.remove("hidden"));document.getElementById("checklist").scrollIntoView({behavior:"smooth"})});
 </script>
 </body>
 </html>
