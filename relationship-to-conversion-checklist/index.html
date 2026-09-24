@@ -31,10 +31,24 @@
 <div class="fields"><input id="firstName" name="first_name" type="text" placeholder="First name" required><input id="email" name="email" type="email" placeholder="Work email" required></div>
 <div class="question">What would you most like clarity on?</div>
 <select id="priority" name="priority" required><option value="">Choose one</option><option>Getting clearer on my ideal buyer</option><option>Knowing where my buyers are</option><option>Building trust across platforms</option><option>Turning attention into clients</option><option>Connecting my platforms into one journey</option><option>I'm not sure yet</option></select>
-<input type="hidden" name="source" value="Relationship-to-Conversion Checklist"><input type="hidden" name="campaign" value="relationship-before-reach"><br><br><button type="submit">GET THE CHECKLIST →</button>
+<input type="hidden" name="source" value="Relationship-to-Conversion Checklist"><input type="hidden" name="campaign" value="relationship-before-reach"><br><br><button type="button" id="getChecklist">GET THE CHECKLIST →</button>
 <p class="small">No spam. Just the checklist from Grov Systems.</p>
 </form>
 <iframe name="ghl-submit-frame" style="display:none" aria-hidden="true"></iframe>
 </div>
 </section>
 
+<script>
+document.getElementById("getChecklist").addEventListener("click", function () {
+  const form = document.getElementById("leadForm");
+  if (!form.reportValidity()) return;
+  this.disabled = true;
+  this.textContent = "OPENING YOUR CHECKLIST…";
+  form.submit();
+  setTimeout(function () {
+    window.location.href = "/relationship-to-conversion-checklist/checklist.html";
+  }, 500);
+});
+</script>
+</body>
+</html>
