@@ -6,7 +6,7 @@ export async function onRequestPost(context) {
       return Response.json({ ok: false, error: "Email is required." }, { status: 400 });
     }
 
-    const webhookUrl = context.env.GHL_WEBHOOK_URL;
+    const webhookUrl = "https://services.leadconnectorhq.com/hooks/61oKsJYxy08f8yYuAF7i/webhook-trigger/7df7647b-589c-4d90-9e09-c142d16b370c";
     if (!webhookUrl) {
       return Response.json({ ok: false, error: "Webhook is not configured." }, { status: 500 });
     }
