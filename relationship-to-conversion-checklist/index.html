@@ -27,57 +27,14 @@
 <div class="form">
 <h2>Before you get into it, what would you most like clarity on?</h2>
 <p class="small">Enter your details and the checklist will appear immediately.</p>
-<form id="leadForm">
-<div class="fields"><input id="firstName" type="text" placeholder="First name" required><input id="email" type="email" placeholder="Work email" required></div>
+<form id="leadForm" action="https://services.leadconnectorhq.com/hooks/61oKsJYxy08f8yYuAF7i/webhook-trigger/7df7647b-589c-4d90-9e09-c142d16b370c" method="POST" target="ghl-submit-frame">
+<div class="fields"><input id="firstName" name="first_name" type="text" placeholder="First name" required><input id="email" name="email" type="email" placeholder="Work email" required></div>
 <div class="question">What would you most like clarity on?</div>
-<select id="priority" required><option value="">Choose one</option><option>Getting clearer on my ideal buyer</option><option>Knowing where my buyers are</option><option>Building trust across platforms</option><option>Turning attention into clients</option><option>Connecting my platforms into one journey</option><option>I'm not sure yet</option></select>
-<br><br><button type="submit">GET THE CHECKLIST →</button>
+<select id="priority" name="priority" required><option value="">Choose one</option><option>Getting clearer on my ideal buyer</option><option>Knowing where my buyers are</option><option>Building trust across platforms</option><option>Turning attention into clients</option><option>Connecting my platforms into one journey</option><option>I'm not sure yet</option></select>
+<input type="hidden" name="source" value="Relationship-to-Conversion Checklist"><input type="hidden" name="campaign" value="relationship-before-reach"><br><br><button type="submit">GET THE CHECKLIST →</button>
 <p class="small">No spam. Just the checklist from Grov Systems.</p>
 </form>
-<div id="complete" class="complete hidden"><h3>Your checklist is ready.</h3><p class="small">Scroll down to work through it. Your next step is at the end.</p></div>
+<iframe name="ghl-submit-frame" style="display:none" aria-hidden="true"></iframe>
 </div>
 </section>
 
-<section id="checklist" class="card section hidden">
-<div class="ey">Your 5-minute diagnostic</div><h2>Start with the relationship, not the reach.</h2><p>Check what is already true in your business. The gaps will point you toward the opportunity that deserves attention.</p>
-<div class="grid">
-<div class="item"><b>WHO</b><p>☐ I can describe my buyer's current problem in their own words.<br>☐ I understand what they've already tried.<br>☐ I know what they want next.</p></div>
-<div class="item"><b>WHERE</b><p>☐ I know where they discover people like me.<br>☐ I know where they validate a provider.<br>☐ I know where deeper conversations happen.</p></div>
-<div class="item"><b>TRUST</b><p>☐ I demonstrate that I understand the problem.<br>☐ I communicate a clear point of view.<br>☐ I show credible proof.<br>☐ People understand what working with me feels like.</p></div>
-<div class="item"><b>PLATFORM</b><p>☐ Each platform has a clear job.<br>☐ My messaging feels connected across channels.<br>☐ I don't expect every platform to create the same action.</p></div>
-<div class="item"><b>CONVERSION</b><p>☐ The next step is obvious.<br>☐ It feels like a natural continuation of the relationship.<br>☐ My offer connects to the problem I've been talking about.<br>☐ Buyers understand why they should act.</p></div>
-</div>
-</section>
-
-<section id="platforms" class="card section hidden">
-<div class="ey">Platform by platform</div><h2>Every platform needs a purpose.</h2>
-<table><tr><th>Platform</th><th>Built for</th><th>Relationship forms through</th><th>Kills trust fast</th><th>This week's move</th></tr>
-<tr><td><b>LinkedIn</b></td><td>Authority without performance</td><td>Consistency and showing your thinking.</td><td>Engagement bait without substance.</td><td>Share one piece of real thinking.</td></tr>
-<tr><td><b>Facebook Groups</b></td><td>Relationship before reach</td><td>Belonging and helpful participation.</td><td>A pitch disguised as a value post.</td><td>Comment meaningfully on 5 posts first.</td></tr>
-<tr><td><b>Instagram</b></td><td>Presence before polish</td><td>Consistency, personality and visual closeness.</td><td>Over-polishing, disappearing, then selling.</td><td>Share one real behind-the-scenes moment.</td></tr>
-<tr><td><b>Threads</b></td><td>Voice before virality</td><td>Opinions and real-time conversation.</td><td>Trending formats with no point of view.</td><td>Post one honest opinion.</td></tr>
-<tr><td><b>YouTube</b></td><td>Depth before distribution</td><td>Teaching and depth over time.</td><td>Chasing trends without a trust-building library.</td><td>Outline one full teaching video.</td></tr>
-<tr><td><b>TikTok</b></td><td>Courage before trends</td><td>Personality and unfiltered moments.</td><td>Copying trends with no point of view.</td><td>Post one unscripted thought.</td></tr>
-<tr><td><b>Skool</b></td><td>Community before conversion</td><td>Real participation inside a contained space.</td><td>Joining only to promote.</td><td>Add value before mentioning an offer.</td></tr></table>
-</section>
-
-<section id="positioning" class="card section hidden">
-<div class="ey">Before you pitch</div><h2>A quick positioning check</h2><p>If people are interested but not buying, the gap may not be the platform. It may be positioning.</p>
-<div class="checks">
-<label><input type="checkbox">Can someone explain what you do in one sentence without seeing your offer page?</label>
-<label><input type="checkbox">Does your content sound like you—or like a template?</label>
-<label><input type="checkbox">Is your offer obviously connected to what people have seen you say and do?</label>
-<label><input type="checkbox">If someone doesn't buy yet, would they still say your content was worth their time?</label>
-</div><p><strong>Relationship gets attention to lean in. Identity is what makes it convert.</strong></p>
-</section>
-
-<section id="cta" class="card section call hidden">
-<div class="ey">Ready for your own diagnosis?</div><h2>Find your highest-priority growth gap.</h2><p>The <strong>Business Clarity Blueprint Session</strong> is a focused strategy session to look at your buyer, positioning, platforms, trust journey and conversion path—and identify what is actually worth fixing first.</p><a class="cta" href="https://gm.grovmedia.com/widget/bookings/business-clarity-strategy-sessio/n" target="_blank" rel="noopener">BOOK YOUR BUSINESS CLARITY BLUEPRINT SESSION →</a><p class="small">Mokshita Paswani · Grov Systems</p>
-</section>
-</div>
-<script>
-const SUBMIT_URL="/api/checklist-lead";
-document.getElementById("leadForm").addEventListener("submit",async(e)=>{e.preventDefault();const payload={first_name:document.getElementById("firstName").value.trim(),email:document.getElementById("email").value.trim(),priority:document.getElementById("priority").value,source:"Relationship-to-Conversion Checklist",campaign:"relationship-before-reach"};try{const response=await fetch(SUBMIT_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});if(!response.ok)throw new Error("submit failed")}catch(_){alert("We could not submit your details. Please try again.");return}document.getElementById("leadForm").style.display="none";document.getElementById("complete").classList.remove("hidden");["checklist","platforms","positioning","cta"].forEach(id=>document.getElementById(id).classList.remove("hidden"));document.getElementById("checklist").scrollIntoView({behavior:"smooth"})});
-</script>
-</body>
-</html>
