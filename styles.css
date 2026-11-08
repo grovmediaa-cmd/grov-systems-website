@@ -1141,3 +1141,9 @@ button,.btn{touch-action:manipulation}
     height:59px;
   }
 }
+
+/* Use the supplied Grov Systems logo artwork; sizing/alignment only. */
+.site-header .brand{flex:0 0 190px;width:190px;height:76px;overflow:visible}
+.site-header .brand::before{background-image:url("grov-systems-logo.png");background-position:center;background-size:contain;background-repeat:no-repeat}
+.footer .brand-logo{content:url("grov-systems-logo.png");width:150px;height:150px;object-fit:contain;object-position:left center}
+@media(max-width:600px){.site-header .brand{flex-basis:150px;width:150px;height:60px}.footer .brand-logo{width:125px;height:125px}}
