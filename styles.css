@@ -1114,3 +1114,30 @@ button,.btn{touch-action:manipulation}
 @media (max-width:600px){
   .site-header .brand{width:174px;height:57px}
 }
+
+/* Final header alignment: keep the supplied Grov Systems lockup unchanged; only size and center it within the header. */
+.site-header .brand{
+  display:block;
+  align-self:center;
+  flex:0 0 232px;
+  width:232px;
+  height:76px;
+  margin:0;
+  overflow:visible;
+}
+.site-header .brand::before{
+  display:block;
+  width:100%;
+  height:100%;
+  background-image:url("grov-systems-wordmark.svg");
+  background-position:center;
+  background-size:contain;
+  background-repeat:no-repeat;
+}
+@media(max-width:600px){
+  .site-header .brand{
+    flex-basis:180px;
+    width:180px;
+    height:59px;
+  }
+}
