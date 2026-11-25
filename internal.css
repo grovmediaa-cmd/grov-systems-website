@@ -755,3 +755,7 @@ section.founders-only.about.dark-section .founder-copy p{color:var(--grov-body)!
 .internal-section.white .rebrand-card .section-kicker{
   color:#C9A96E !important;
 }
+
+/* Grov Systems heading accent and shared palette refinement */
+.page-hero h1{font-family:'Manrope',sans-serif;font-weight:500;letter-spacing:-.025em;color:#F4F1EA}
+.page-hero h1 em,.page-hero h1 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#D6B262}
