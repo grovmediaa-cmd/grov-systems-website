@@ -759,3 +759,9 @@ section.founders-only.about.dark-section .founder-copy p{color:var(--grov-body)!
 /* Grov Systems heading accent and shared palette refinement */
 .page-hero h1{font-family:'Manrope',sans-serif;font-weight:500;letter-spacing:-.025em;color:#F4F1EA}
 .page-hero h1 em,.page-hero h1 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#D6B262}
+
+/* Shared refined headline treatment for internal pages */
+.page-hero h1{font-family:'Manrope',sans-serif;font-weight:500;letter-spacing:-.025em;color:#F4F1EA;text-transform:none}
+.page-hero h1 em,.page-hero h1 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#D6B262}
+.page-hero h1 em:not(.acc){font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#D6B262}
+.hero-meta{border-color:rgba(214,178,98,.28)}
