@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400&display=swap');
 :root{
   --navy:#0B1220;--midnight:#111A2B;--ivory:#F6F3EC;--white:#FFFFFF;
   --gold:#D6B262;--charcoal:#151A23;--slate:#667085;
@@ -1149,7 +1150,6 @@ button,.btn{touch-action:manipulation}
 @media(max-width:600px){.site-header .brand{flex-basis:150px;width:150px;height:60px}.footer .brand-logo{width:125px;height:125px}}
 
 /* === GROV SYSTEMS TYPOGRAPHY & COLOUR REFINEMENT === */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400&display=swap');
 :root{--gold:#D6B262;--line:rgba(214,178,98,.28)}
 html,body{font-family:'Manrope',sans-serif}
 body{color:#F4F1EA}
@@ -1162,3 +1162,18 @@ h1 em.acc,h2 em.acc,.different-card h2 em.acc{font-family:'Playfair Display',ser
 .light-section h1,.light-section h2,.light-section h3,.light-section h4{color:#202733}
 .light-section p{color:#4F5968}
 .footer-top small,.footer-bottom,.muted{color:#8C93A3}
+
+/* Grov Systems refined type and palette */
+:root{--gold:#D6B262;--line:rgba(214,178,98,.28)}
+html,body{font-family:'Manrope',sans-serif}
+body{color:#F4F1EA}
+p{color:#C9CDD6}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:500;letter-spacing:-.025em;color:#F4F1EA;text-transform:none}
+h1 em,h2 em,.different-card h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#D6B262}
+h1 em.acc,h2 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#D6B262}
+.eyebrow,.section-kicker{color:#8C93A3}
+.eyebrow.gold,.section-kicker,.hero-eyebrow{color:#D6B262}
+.btn-gold:hover{background:#E9CF8F;border-color:#E9CF8F;filter:none}
+.light-section h1,.light-section h2,.light-section h3,.light-section h4{color:#202733}
+.light-section p{color:#4F5968}
+.footer-top small,.footer-bottom{color:#8C93A3}
