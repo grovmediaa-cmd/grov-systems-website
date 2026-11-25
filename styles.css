@@ -1146,7 +1146,7 @@ button,.btn{touch-action:manipulation}
 /* Use the supplied Grov Systems logo artwork; sizing/alignment only. */
 .site-header .brand{flex:0 0 190px;width:190px;height:76px;overflow:visible}
 .site-header .brand::before{background-image:url("grov-systems-logo.png");background-position:center;background-size:contain;background-repeat:no-repeat}
-.footer .brand-logo{content:url("grov-systems-logo.png");width:150px;height:150px;object-fit:contain;object-position:left center}
+.footer .brand-logo{content:url("grov-systems-wordmark.svg");width:150px;height:150px;object-fit:contain;object-position:left center}
 @media(max-width:600px){.site-header .brand{flex-basis:150px;width:150px;height:60px}.footer .brand-logo{width:125px;height:125px}}
 
 /* === GROV SYSTEMS TYPOGRAPHY & COLOUR REFINEMENT === */
@@ -1184,7 +1184,7 @@ h1 em.acc,h2 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-
 .site-header .brand>span{display:none!important}
 .footer .brand{display:inline-flex;min-height:72px;align-items:center}
 .footer .brand-logo{content:url("grov-systems-logo.png");width:260px;height:auto;max-height:135px;object-fit:contain;object-position:left center}
-.footer .brand:not(:has(.brand-logo))::before{content:"";display:block;width:260px;height:136px;background:url("grov-systems-logo.png") left center/contain no-repeat}
+.footer .brand:not(:has(.brand-logo))::before{content:"";display:block;width:260px;height:136px;background:url("grov-systems-wordmark.svg") left center/contain no-repeat}
 @media(max-width:600px){.site-header .brand{width:62px;height:54px;flex-basis:62px}.footer .brand-logo,.footer .brand:not(:has(.brand-logo))::before{width:220px;max-height:115px}}
 
 /* Final shared brand and typography tokens */
