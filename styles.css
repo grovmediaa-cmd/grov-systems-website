@@ -1180,7 +1180,7 @@ h1 em.acc,h2 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-
 
 /* Supplied GS identity assets */
 .site-header .brand{width:76px;height:64px;flex:0 0 76px;overflow:hidden}
-.site-header .brand::before{content:"";display:block;width:100%;height:100%;background:url("grov-systems-logo.png") center top/190% auto no-repeat}
+.site-header .brand::before{content:"";display:block;width:100%;height:100%;background:url("grov-systems-mark.svg") center/contain no-repeat}
 .site-header .brand>span{display:none!important}
 .footer .brand{display:inline-flex;min-height:72px;align-items:center}
 .footer .brand-logo{content:url("grov-systems-logo.png");width:260px;height:auto;max-height:135px;object-fit:contain;object-position:left center}
