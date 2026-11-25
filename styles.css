@@ -1180,9 +1180,9 @@ h1 em.acc,h2 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-
 
 /* Supplied GS identity assets */
 .site-header .brand{width:76px;height:64px;flex:0 0 76px;overflow:hidden}
-.site-header .brand::before{content:"";display:block;width:100%;height:100%;background:url("grov-systems-symbol.svg") center/contain no-repeat}
+.site-header .brand::before{content:"";display:block;width:100%;height:100%;background:url("grov-systems-logo-transparent.png") center top/190% auto no-repeat}
 .site-header .brand>span{display:none!important}
 .footer .brand{display:inline-flex;min-height:72px;align-items:center}
-.footer .brand-logo{content:url("grov-systems-logo.png");width:260px;height:auto;max-height:135px;object-fit:contain;object-position:left center}
+.footer .brand-logo{content:url("grov-systems-logo-transparent.png");width:260px;height:auto;max-height:135px;object-fit:contain;object-position:left center}
 .footer .brand:not(:has(.brand-logo))::before{content:"";display:block;width:260px;height:136px;background:url("grov-systems-logo-transparent.png") left center/contain no-repeat}
 @media(max-width:600px){.site-header .brand{width:62px;height:54px;flex-basis:62px}.footer .brand-logo,.footer .brand:not(:has(.brand-logo))::before{width:220px;max-height:115px}}
