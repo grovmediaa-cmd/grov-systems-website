@@ -1183,7 +1183,7 @@ h1 em.acc,h2 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-
 .site-header .brand::before{content:"";display:block;width:100%;height:100%;background:url("grov-systems-mark.svg") center/contain no-repeat}
 .site-header .brand>span{display:none!important}
 .footer .brand{display:inline-flex;min-height:72px;align-items:center}
-.footer .brand-logo{content:url("grov-systems-logo.png");width:260px;height:auto;max-height:135px;object-fit:contain;object-position:left center}
+.footer .brand-logo{content:url("grov-systems-mark.svg");width:92px;height:58px;max-height:58px;object-fit:contain;object-position:left center}
 .footer .brand:not(:has(.brand-logo))::before{content:"";display:block;width:260px;height:136px;background:url("grov-systems-wordmark.svg") left center/contain no-repeat}
 @media(max-width:600px){.site-header .brand{width:62px;height:54px;flex-basis:62px}.footer .brand-logo,.footer .brand:not(:has(.brand-logo))::before{width:220px;max-height:115px}}
 
@@ -1196,3 +1196,10 @@ em.acc{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;co
 .eyebrow,.section-kicker{color:#8C93A3}
 .hero-eyebrow,.eyebrow.gold,.section-kicker{color:#D6B262}
 .btn-gold:hover{background:#E9CF8F;border-color:#E9CF8F}
+
+
+/* GROV SYSTEMS — consistent hero-style section heading accents and footer mark */
+.footer .brand{display:inline-flex;align-items:center;gap:14px;min-height:64px}
+.footer .brand-logo{content:url("grov-systems-mark.svg")!important;width:92px!important;height:58px!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important}
+.footer .brand::after{content:"GROV SYSTEMS";display:inline-block;color:#D6B262;font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;white-space:nowrap}
+h1 em.acc,h2 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#D6B262}
