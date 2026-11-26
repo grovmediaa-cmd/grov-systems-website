@@ -1203,3 +1203,24 @@ em.acc{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;co
 .footer .brand-logo{content:url("grov-systems-mark.svg")!important;width:92px!important;height:58px!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important}
 .footer .brand::after{content:"GROV SYSTEMS";display:inline-block;color:#D6B262;font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;white-space:nowrap}
 h1 em.acc,h2 em.acc{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#D6B262}
+
+
+/* FINAL DESIGN SYSTEM — champagne gold, editorial heading accents, consistent footer */
+:root{--gold:#C6A15B;--line:rgba(198,161,91,.28)}
+h1 em,h2 em,h3 em,h1 em.acc,h2 em.acc,h3 em.acc{
+  font-family:'Playfair Display',serif!important;
+  font-style:italic!important;
+  font-weight:400!important;
+  color:#C6A15B!important;
+}
+.footer .brand{display:inline-flex!important;align-items:center!important;gap:13px!important;min-height:64px}
+.footer .brand-logo{display:none!important}
+.footer .brand::before{
+  content:"";display:inline-block;flex:0 0 34px;width:34px;height:30px;
+  background:linear-gradient(145deg,transparent 0 20%,#C6A15B 21% 25%,transparent 26%),
+             linear-gradient(160deg,transparent 0 37%,#C6A15B 38% 42%,transparent 43%),
+             linear-gradient(180deg,transparent 0 48%,#C6A15B 49% 54%,transparent 55%);
+  clip-path:polygon(0 100%,0 82%,25% 62%,25% 77%,53% 40%,53% 57%,100% 0,75% 58%,75% 42%,48% 80%,48% 62%);
+}
+.footer .brand::after{content:"GROV SYSTEMS";display:inline-block;color:#C6A15B;font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;white-space:nowrap}
+@media(max-width:600px){.footer .brand::before{flex-basis:30px;width:30px}.footer .brand::after{font-size:11px;letter-spacing:.16em}}
