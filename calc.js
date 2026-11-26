@@ -14,8 +14,8 @@ function closeCalc(){const o=get('grovCalcOverlay');if(!o)return;o.classList.rem
 document.addEventListener('DOMContentLoaded',()=>{
  document.body.insertAdjacentHTML('beforeend',modalHTML); get('grovCalcForm').addEventListener('submit',e=>{e.preventDefault();calculate();}); get('grovCalcOverlay').addEventListener('click',e=>{if(e.target.id==='grovCalcOverlay')closeCalc();}); get('grovCalcOverlay').querySelector('.grov-calc-close').addEventListener('click',closeCalc); document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCalc();});
  document.querySelectorAll('a[href="revenue-calculator.html"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();openCalc(true);});a.classList.add('grov-calc-trigger');}); document.querySelectorAll('[data-open-revenue-calculator]').forEach(el=>el.addEventListener('click',()=>openCalc(true)));
- let armed=false;setTimeout(()=>armed=true,2500);document.addEventListener('mouseout',e=>{if(!armed||e.relatedTarget||e.clientY>8||sessionStorage.getItem(sessionKey))return;openCalc(true);});
- if(window.matchMedia('(max-width:760px)').matches&&!sessionStorage.getItem(sessionKey))setTimeout(()=>openCalc(true),30000);
+ // Keep the calculator user-initiated. Avoid interrupting visitors with exit-intent
+ // or timed mobile popups; all visible calculator links still open it normally.
 });
 })();
 
